@@ -1,5 +1,7 @@
 <?php
 // models/Alumno.php
+//include 'config/secure-session.php';
+
 class Ghoul
 {  // atributos relativos a la conexión/correspondencia con la Base de Datos, visibilidad private
     private $conn;
@@ -31,7 +33,7 @@ class Ghoul
     // Método para crear un alumno
     public function create()
     {
-        $query = "INSERT INTO " . $this->table_name . " SET name=:name, rank=:rank, kagune=:kagune, district=:district, organization_member, first_detected_activity=:first_detected_activity";
+        $query = "INSERT INTO " . $this->table_name . " SET name=:name, rank=:rank, kagune=:kagune, district=:district, organization_member=:organization_member, first_detected_activity=:first_detected_activity";
         $stmt = $this->conn->prepare($query);
 
         // Limpiar y enlazar parámetros
@@ -76,7 +78,7 @@ class Ghoul
     // Método para actualizar un alumno
     public function update()
     {
-        $query = "UPDATE " . $this->table_name . " SET SET name=:name, rank=:rank, kagune=:kagune, district=:district, organization_member=:organization_member, first_detected_activity=:first_detected_activity";
+        $query = "UPDATE " . $this->table_name . " SET name=:name, rank=:rank, kagune=:kagune, district=:district, organization_member=:organization_member, first_detected_activity=:first_detected_activity";
         $stmt = $this->conn->prepare($query);
 
         $stmt->bindParam(":name", $this->name);                            // en insertar no se pide la clave primaria

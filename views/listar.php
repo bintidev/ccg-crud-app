@@ -30,7 +30,7 @@
 </head>
 
 <body>
-    <h2>Listado de Alumnos</h2>
+    <h2>Active ghouls list</h2>
 
     <?php if (isset($_GET['message'])): ?>
         <div class="message">
@@ -45,31 +45,35 @@
         </div>
     <?php endif; ?>
 
-    <p><a href="index.php?action=create">Añadir Nuevo Alumno</a></p>
+    <p><a href="index.php?action=create">Add new ghoul</a></p>
 
     <table>
         <thead>
             <tr>
-                <th>Num Alumno</th>
-                <th>Nombre</th>
-                <th>Apellidos</th>
-                <th>Fecha Nacimiento</th>
-                <th>Repite</th>
+                <th>Ghoul ID</th>
+                <th>Name</th>
+                <th>Rank</th>
+                <th>Kagune</th>
+                <th>District</th>
+                <th>Organization</th>
+                <th>First Detected Activity</th>
                 <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($alumnos as $alumno): ?><!-- alumno es una colección de filas de la tabla -->
+            <?php foreach ($_SESSION['ghoul'] as $ghoul): ?><!-- alumno es una colección de filas de la tabla -->
                 <tr>
-                    <td><?php echo $alumno['numAlumno']; ?></td>
-                    <td><?php echo htmlspecialchars($alumno['nombre']); ?></td>
-                    <td><?php echo htmlspecialchars($alumno['apellidos']); ?></td>
-                    <td><?php echo htmlspecialchars($alumno['fechaNacimiento']); ?></td>
-                    <td><?php echo $alumno['repite'] ? 'Sí' : 'No'; ?></td>
+                    <td><?php echo $ghoul['ghoulid']; ?></td>
+                    <td><?php echo htmlspecialchars($ghoul['name']); ?></td>
+                    <td><?php echo htmlspecialchars($ghoul['rank']); ?></td>
+                    <td><?php echo htmlspecialchars($ghoul['kagune']); ?></td>
+                    <td><?php echo $ghoul['district']; ?></td>
+                    <td><?php echo $ghoul['organization_member']; ?></td>
+                    <td><?php echo $ghoul['first_detected_activity']; ?></td>
                     <td>
                         <!-- en la última celda incluimos los botones para ir a borrar o editar una fila -->
-                        <a href="index.php?action=edit&id=<?php echo $alumno['numAlumno']; ?>">Editar</a> |
-                        <a href="index.php?action=delete&id=<?php echo $alumno['numAlumno']; ?>" onclick="return confirm('¿Estás seguro?');">Eliminar</a>
+                        <a href="index.php?action=edit&id=<?php echo $_SESSION['ghoul']['ghoulid']; ?>">Editar</a> |
+                        <a href="index.php?action=delete&id=<?php echo $_SESSION['ghoul']['ghoulid']; ?>" onclick="return confirm('¿Estás seguro?');">Eliminar</a>
                     </td>
                 </tr>
             <?php endforeach; ?>

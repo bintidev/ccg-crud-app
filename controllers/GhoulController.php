@@ -3,7 +3,7 @@
 include_once 'config/Database.php';
 include_once 'models/Ghoul.php';
 
-class AlumnoController
+class GhoulController
 {
     private $db;
     private $ghoul;                                // objeto alumno, para controlar intercambios bd-memoria ppal
@@ -18,14 +18,14 @@ class AlumnoController
     public function index()
     {
         $stmt = $this->ghoul->read();               // invoca la operación read del modelo (SELECT * de la tabla entera)
-        $ghoul = $stmt->fetchAll(PDO::FETCH_ASSOC);// lo convierte todo al formato array asociativo (es un array de filas)
+        $_SESSION['ghoul'] = $stmt->fetchAll(PDO::FETCH_ASSOC);// lo convierte todo al formato array asociativo (es un array de filas)
         include 'views/listar.php';                  // incluye aquí el código de listar (mostrar tabla por pantalla)
     }
 
     public function create()
     {
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            $this->ghoul->name = $_POST['nombre'];
+            $this->ghoul->name = $_POST['name'];
             $this->ghoul->rank = $_POST['rank'];
             $this->ghoul->kagune = $_POST['kagune'];
             $this->ghoul->district = $_POST['district'];
@@ -36,7 +36,7 @@ class AlumnoController
                 header("Location: index.php?action=index&message=created");
                 exit();
             } else {
-                $error = "Error al crear alumno.";
+                $_SESSION['error'] = "Error al crear alumno.";
                 include 'views/crear.php'; // Recargar vista con error
             }
         } else {
@@ -48,7 +48,7 @@ class AlumnoController
     {
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Lógica de actualización (UPDATE)
-            $this->ghoul->name = $_POST['nombre'];
+            $this->ghoul->name = $_POST['name'];
             $this->ghoul->rank = $_POST['rank'];
             $this->ghoul->kagune = $_POST['kagune'];
             $this->ghoul->district = $_POST['district'];
@@ -60,19 +60,20 @@ class AlumnoController
                 header("Location: index.php?action=index&message=updated");
                 exit();
             } else {
-                $error = "Error al actualizar.";
+                $_SESSION['error'] = "Error al actualizar.";
             }
         }
 
         // Lógica para mostrar el formulario de edición (READ ONE)
         if (isset($_GET['id'])) {
-            $this->ghoul->ghoulid = $_GET['ghoulid'];
+            $this->ghoul->ghoulid = $_GET['id'];
             $this->ghoul->readOne();
             if ($this->ghoul->name) {
-                $alumno_data = (object)['ghoulid' => $this->ghoul->ghoulid, 'name' => $this->ghoul->name, 'rank' => $this->ghoul->rank, 'kagune' => $this->ghoul->kagune, 'repite' => $this->ghoul->repite];
+                $_SESSION['ghoul_data'] = (object)['ghoulid' => $this->ghoul->ghoulid, 'name' => $this->ghoul->name, 'rank' => $this->ghoul->rank,
+                'kagune' => $this->ghoul->kagune, 'organization_member' => $this->ghoul->organization_member, 'first_detected_activity' => $this->ghoul->first_detected_activity];
                 include 'views/editar.php';
             } else {
-                echo "ghoul no encontrado.";
+                $_SESSION['error'] = "Ghoul no encontrado.";
             }
         }
     }
