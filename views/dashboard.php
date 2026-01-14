@@ -4,7 +4,11 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Listado de Alumnos (MVC)</title>
+    <title>Ghouls List</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="public/css/dashboard-style.css">
     <style>                            
         table {
             border-collapse: collapse;
@@ -30,6 +34,9 @@
 </head>
 
 <body>
+
+    <?php include 'templates/header.php'; ?>
+
     <h2>Active ghouls list</h2>
 
     <?php if (isset($_GET['message'])): ?>
@@ -47,22 +54,24 @@
 
     <p><a href="index.php?action=create">Add new ghoul</a></p>
 
-    <table>
+    <table class="table">
         <thead>
             <tr>
-                <th>Ghoul ID</th>
-                <th>Name</th>
-                <th>Rank</th>
-                <th>Kagune</th>
-                <th>District</th>
-                <th>Organization</th>
-                <th>First Detected Activity</th>
-                <th>Acciones</th>
+                <th scope="col">ID</th>
+                <th scope="col">Ghoul ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Rank</th>
+                <th scope="col">Kagune</th>
+                <th scope="col">District</th>
+                <th scope="col">Organization</th>
+                <th scope="col">First Detected Activity</th>
+                <th scope="col">Acciones</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody class="table-group-divider">
             <?php foreach ($_SESSION['ghoul'] as $ghoul): ?><!-- alumno es una colección de filas de la tabla -->
                 <tr>
+                    <th scope="row"><?php echo $ghoul['id']; ?></th>
                     <td><?php echo $ghoul['ghoulid']; ?></td>
                     <td><?php echo htmlspecialchars($ghoul['name']); ?></td>
                     <td><?php echo htmlspecialchars($ghoul['rank']); ?></td>
@@ -79,6 +88,13 @@
             <?php endforeach; ?>
         </tbody>
     </table>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"
+        integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y"
+        crossorigin="anonymous"></script>
 
 </body>
 

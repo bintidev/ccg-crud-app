@@ -19,7 +19,7 @@ class GhoulController
     {
         $stmt = $this->ghoul->read();               // invoca la operación read del modelo (SELECT * de la tabla entera)
         $_SESSION['ghoul'] = $stmt->fetchAll(PDO::FETCH_ASSOC);// lo convierte todo al formato array asociativo (es un array de filas)
-        include 'views/listar.php';                  // incluye aquí el código de listar (mostrar tabla por pantalla)
+        include 'views/dashboard.php';                  // incluye aquí el código de listar (mostrar tabla por pantalla)
     }
 
     public function create()
@@ -33,7 +33,7 @@ class GhoulController
             $this->ghoul->first_detected_activity = $_POST['first_detected_activity'];
 
             if ($this->ghoul->create()) {
-                header("Location: index.php?action=index&message=created");
+                header("Location: index.php?action=dashboard&message=created");
                 exit();
             } else {
                 $_SESSION['error'] = "Error al crear alumno.";
@@ -57,7 +57,7 @@ class GhoulController
 
 
             if ($this->ghoul->update()) {
-                header("Location: index.php?action=index&message=updated");
+                header("Location: index.php?action=dashboard&message=updated");
                 exit();
             } else {
                 $_SESSION['error'] = "Error al actualizar.";
@@ -83,10 +83,10 @@ class GhoulController
         if (isset($_GET['id'])) {
             $this->ghoul->ghoulid = $_GET['id'];
             if ($this->ghoul->delete()) {
-                header("Location: index.php?action=index&message=deleted");
+                header("Location: index.php?action=dashboard&message=deleted");
                 exit();
             } else {
-                header("Location: index.php?action=index&message=error_delete");
+                header("Location: index.php?action=dashboard&message=error_delete");
                 exit();
             }
         }

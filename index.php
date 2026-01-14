@@ -1,7 +1,11 @@
 <?php
 
 require_once 'controllers/GhoulController.php';  // el controlador de autentificación y
-require_once 'models/Ghoul.php';                 // el modelo de usuarios son cargados al empezar																							// ambos son declaraciones de clases -> orientación a objetos pura
+require_once 'controllers/AuthController.php';                 // el modelo de usuarios son cargados al empezar
+
+require_once 'models/User.php';
+require_once 'models/Ghoul.php';																						
+                                                        // ambos son declaraciones de clases -> orientación a objetos pura
 include 'config/secure-session.php';
 
 $auth_controller = new AuthController();
@@ -12,20 +16,15 @@ $action = isset($_GET['action']) ? $_GET['action'] : 'login';
 
 // Llama al método correspondiente del controlador
 switch ($action) {
-    case 'login':
-        $auth_controller->login();              // si la action fuera login
-        break;
     case 'authenticate':
         $auth_controller->authenticate();      // si hay que autenticar
         break;
+    case 'index':
     case 'dashboard':
-        $auth_controller->dashboard();         // si vamos a la página interna de inicio de la aplicación
+        $ghoul_controller->index();         // si vamos a la página interna de inicio de la aplicación
         break;
     case 'logout':
         $auth_controller->logout();            // si cerramos la sesión
-        break;
-    case 'index':
-        $ghoul_controller->index();          // se invoca al método index() de AlumnoController
         break;
     case 'create':
         $ghoul_controller->create();         // se invoca al método create() de AlumnoController
@@ -37,6 +36,6 @@ switch ($action) {
         $ghoul_controller->delete();         // se invoca al método delete() de AlumnoController
         break;
     default:
-        $ghoul_controller->login();
+        $auth_controller->login();             // por defecto, ir al login
         break;
 }

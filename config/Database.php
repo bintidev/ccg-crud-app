@@ -3,7 +3,7 @@
 class Database
 {
     private $host = 'localhost';
-    private $db_name = 'ghoul_system';
+    private $db_name = 'login_php';
     private $username = 'login-php';
     private $password = 'CCG_login.php';
     public $PDO;

@@ -42,7 +42,7 @@ class Ghoul
         // ... validaciones si fueran necesarias
 
         $stmt->bindParam(":name", $this->name);                            // en insertar no se pide la clave primaria
-        $stmt->bindParam(":rank", $this->rank);                      // es autoincremental
+        $stmt->bindParam(":rank", $this->rank);                             // es autoincremental
         $stmt->bindParam(":kagune", $this->kagune);
         $stmt->bindParam(":district", $this->district, PDO::PARAM_INT);            // se convierte explicitamente en entero
         $stmt->bindParam(":organization_member", $this->organization_member, PDO::PARAM_BOOL);

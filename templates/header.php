@@ -1,0 +1,20 @@
+
+<!-- Header -->
+<nav class="navbar navbar-expand-lg ">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <img src="public/img/ccg_logo.png" alt="Logo" width="65.5px" id="logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon border border-0"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="btn btn-primary p-3" href="index.php?action=logout" id="logout-btn">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

@@ -82,7 +82,7 @@ INSERT INTO `ghouls` (`id`, `ghoulid`, `name`, `rank`, `kagune`, `district`, `or
 -- Índices para tablas volcadas
 --
 
-GRANT SELECT ON login_php.*, ghoul_system.* TO `login-php`@`%` IDENTIFIED BY PASSWORD 'CCG_login.php';
+GRANT SELECT, INSERT, UPDATE, DELETE, REFERENCES, DELETE HISTORY ON `login_php`.* TO `login-php`@`localhost` IDENTIFIED BY PASSWORD 'CCG_login.php';
 --
 -- Usuario con acceso a ambas BD
 --
