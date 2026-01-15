@@ -20,6 +20,9 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `login_php`
 --
+DROP DATABASE IF EXISTS `login_php`;
+
+
 CREATE DATABASE IF NOT EXISTS `login_php` DEFAULT CHARACTER SET utf8 COLLATE utf8_spanish_ci;
 USE `login_php`;
 
@@ -29,8 +32,8 @@ USE `login_php`;
 -- Estructura de tabla para la tabla `users`
 --
 
-CREATE TABLE `users` (
-  `user` int(11) NOT NULL,
+CREATE TABLE `admins` (
+  `user` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `agentid` varchar(5) NOT NULL,
   `password` varchar(255) NOT NULL,
   `last_name` varchar(80) NOT NULL,
@@ -41,7 +44,7 @@ CREATE TABLE `users` (
 -- Volcado de datos para la tabla `users`
 --
 
-INSERT INTO `users` (`user`, `agentid`, `password`, `last_name`, `name`) VALUES
+INSERT INTO `admins` (`user`, `agentid`, `password`, `last_name`, `name`) VALUES
 (1, 'MK001', 'KureoMad0_!', 'Mado', 'Kureo');
 
 --
@@ -49,19 +52,11 @@ INSERT INTO `users` (`user`, `agentid`, `password`, `last_name`, `name`) VALUES
 --
 
 --
--- Base de datos: `ghoul_system`
---
-CREATE DATABASE IF NOT EXISTS `ghoul_system` DEFAULT CHARACTER SET utf8 COLLATE utf8_spanish_ci;
-USE `ghoul_system`;
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `ghouls`
 --
 
 CREATE TABLE `ghouls` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `ghoulid` varchar(8) NOT NULL,
   `name` varchar(100) NOT NULL,
   `rank` varchar(3) NOT NULL,
@@ -82,7 +77,7 @@ INSERT INTO `ghouls` (`id`, `ghoulid`, `name`, `rank`, `kagune`, `district`, `or
 -- Índices para tablas volcadas
 --
 
-GRANT SELECT, INSERT, UPDATE, DELETE, REFERENCES, DELETE HISTORY ON `login_php`.* TO `login-php`@`localhost` IDENTIFIED BY PASSWORD 'CCG_login.php';
+-- CREATE USER 'login-php'@'%' IDENTIFIED VIA mysql_native_password USING '***';GRANT SELECT, INSERT, UPDATE, DELETE, REFERENCES ON *.* TO 'login-php'@'%' REQUIRE NONE WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0; 
 --
 -- Usuario con acceso a ambas BD
 --

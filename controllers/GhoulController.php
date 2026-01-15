@@ -52,7 +52,7 @@ class GhoulController
             $this->ghoul->rank = $_POST['rank'];
             $this->ghoul->kagune = $_POST['kagune'];
             $this->ghoul->district = $_POST['district'];
-            $this->ghoul->organization_member = isset($_POST['organization_member']) ? 1 : 0;
+            $this->ghoul->organization_member = isset($_POST['organization_member']) == 1 ? 'Yes' : 'No';
             $this->ghoul->first_detected_activity = $_POST['first_detected_activity'];
 
 
