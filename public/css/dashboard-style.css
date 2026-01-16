@@ -32,8 +32,16 @@ body {
     }
 }
 
+#reminder {
+    font-size: 15.5px;
+    background-color: rgba(236, 74, 150, 0.555);
+    border-left: solid 10px rgb(255, 0, 119);
+    color: #d8d8d8
+}
+
 #btn-logout,
-#btn-crear {
+#btn-crear,
+#btn-actualizar {
     background-color: rgb(97, 16, 43);
     /* saturate($primary, 30%) */
     color: #fff;
@@ -49,6 +57,14 @@ body {
         background-color: rgb(146, 0, 68);
         box-shadow: 0 0 10px rgb(216, 0, 101);
     }
+}
+
+table {
+    background-color: #ffffffd0;
+}
+
+thead {
+    background-color: rgb(87, 81, 126);
 }
 
 button:hover:active {

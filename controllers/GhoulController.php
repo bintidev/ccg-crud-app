@@ -25,11 +25,12 @@ class GhoulController
     public function create()
     {
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $this->ghoul->ghoulid = $_POST['ghoulid'];
             $this->ghoul->name = $_POST['name'];
             $this->ghoul->rank = $_POST['rank'];
             $this->ghoul->kagune = $_POST['kagune'];
-            $this->ghoul->district = $_POST['district'];
-            $this->ghoul->organization_member = isset($_POST['organization_member']) ? 1 : 0;
+            $this->ghoul->ward = $_POST['ward'];
+            $this->ghoul->contained = isset($_POST['contained']) ? 1 : 0;
             $this->ghoul->first_detected_activity = $_POST['first_detected_activity'];
 
             if ($this->ghoul->create()) {
@@ -37,10 +38,10 @@ class GhoulController
                 exit();
             } else {
                 $_SESSION['error'] = "Error al crear alumno.";
-                include 'views/crear.php'; // Recargar vista con error
+                include 'views/create.php'; // Recargar vista con error
             }
         } else {
-            include 'views/crear.php';
+            include 'views/create.php';
         }
     }
 
@@ -48,11 +49,12 @@ class GhoulController
     {
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Lógica de actualización (UPDATE)
+            $this->ghoul->ghoulid = $_POST['ghoulid'];
             $this->ghoul->name = $_POST['name'];
             $this->ghoul->rank = $_POST['rank'];
             $this->ghoul->kagune = $_POST['kagune'];
-            $this->ghoul->district = $_POST['district'];
-            $this->ghoul->organization_member = isset($_POST['organization_member']) == 1 ? 'Yes' : 'No';
+            $this->ghoul->ward = $_POST['ward'];
+            $this->ghoul->contained = isset($_POST['contained']) == 1 ? 'Yes' : 'No';
             $this->ghoul->first_detected_activity = $_POST['first_detected_activity'];
 
 
@@ -66,12 +68,12 @@ class GhoulController
 
         // Lógica para mostrar el formulario de edición (READ ONE)
         if (isset($_GET['id'])) {
-            $this->ghoul->ghoulid = $_GET['id'];
+            $this->ghoul->id = $_GET['id'];
             $this->ghoul->readOne();
             if ($this->ghoul->name) {
                 $_SESSION['ghoul_data'] = (object)['ghoulid' => $this->ghoul->ghoulid, 'name' => $this->ghoul->name, 'rank' => $this->ghoul->rank,
-                'kagune' => $this->ghoul->kagune, 'organization_member' => $this->ghoul->organization_member, 'first_detected_activity' => $this->ghoul->first_detected_activity];
-                include 'views/editar.php';
+                'kagune' => $this->ghoul->kagune, 'contained' => $this->ghoul->contained, 'first_detected_activity' => $this->ghoul->first_detected_activity];
+                include 'views/edit.php';
             } else {
                 $_SESSION['error'] = "Ghoul no encontrado.";
             }
@@ -81,7 +83,7 @@ class GhoulController
     public function delete()                                           // esta operación NO TIENE VISTA ASOCIADA, solo mensajes
     {                                                                  // de confirmación o error
         if (isset($_GET['id'])) {
-            $this->ghoul->ghoulid = $_GET['id'];
+            $this->ghoul->id = $_GET['id'];
             if ($this->ghoul->delete()) {
                 header("Location: index.php?action=dashboard&message=deleted");
                 exit();

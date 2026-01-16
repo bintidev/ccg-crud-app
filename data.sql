@@ -44,8 +44,11 @@ CREATE TABLE `admins` (
 -- Volcado de datos para la tabla `users`
 --
 
-INSERT INTO `admins` (`user`, `agentid`, `password`, `last_name`, `name`) VALUES
-(1, 'MK001', 'KureoMad0_!', 'Mado', 'Kureo');
+INSERT INTO `admins` (`agentid`, `password`, `last_name`, `name`) VALUES
+('MK001', 'KureoMad0_!', 'Mado', 'Kureo');
+
+INSERT INTO `admins` (`agentid`, `password`, `last_name`, `name`) VALUES
+('TN219', '@tsuri-wLuV33', 'Nori', 'Tsuda');
 
 --
 -- Índices para tablas volcadas
@@ -59,9 +62,9 @@ CREATE TABLE `ghouls` (
   `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `ghoulid` varchar(8) NOT NULL,
   `name` varchar(100) NOT NULL,
-  `rank` varchar(3) NOT NULL,
+  `rank` varchar(3),
   `kagune` enum('Ukaku','Koukaku','Rinkaku','Bikaku') NOT NULL,
-  `district` int(11) NOT NULL,
+  `district` int(11),
   `organization_member` tinyint(1) NOT NULL,
   `first_detected_activity` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
@@ -70,14 +73,19 @@ CREATE TABLE `ghouls` (
 -- Volcado de datos para la tabla `ghouls`
 --
 
-INSERT INTO `ghouls` (`id`, `ghoulid`, `name`, `rank`, `kagune`, `district`, `organization_member`, `first_detected_activity`) VALUES
-(1, 'PE-kk001', 'Patched Eye', 'SSS', 'Rinkaku', 20, 1, '2012-10-16');
+INSERT INTO `ghouls` (`ghoulid`, `name`, `rank`, `kagune`, `district`, `organization_member`, `first_detected_activity`) VALUES
+('PE-kk001', 'Eyepatch', 'SSS', 'Rinkaku', 20, 1, '2012-10-16');
+
+INSERT INTO `ghouls` (`ghoulid`, `name`, `rank`, `kagune`, `district`, `organization_member`, `first_detected_activity`) VALUES
+('GM-ts012', 'Gourmet', 'SSS', 'Koukaku', NULL, 0, '2004-04-2');
 
 --
 -- Índices para tablas volcadas
 --
 
--- CREATE USER 'login-php'@'%' IDENTIFIED VIA mysql_native_password USING '***';GRANT SELECT, INSERT, UPDATE, DELETE, REFERENCES ON *.* TO 'login-php'@'%' REQUIRE NONE WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0; 
+
+GRANT SELECT, INSERT, UPDATE, DELETE, REFERENCES, DELETE HISTORY ON *.* TO `login-php`@`localhost` IDENTIFIED BY PASSWORD '*2A80256C5318AF3140A37693CCD04CE699D8D947';
+
 --
 -- Usuario con acceso a ambas BD
 --
