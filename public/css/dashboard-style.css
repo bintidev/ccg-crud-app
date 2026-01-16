@@ -12,6 +12,7 @@ body {
     color: rgb(114, 114, 114);
 }
 
+/* NAVBAR */
 .navbar {
     background-color: rgb(87, 81, 126);
     border-bottom: solid 3.5px rgb(146, 0, 68);
@@ -39,6 +40,8 @@ body {
     color: #d8d8d8
 }
 
+
+/* BUTTONS */
 #btn-logout,
 #btn-crear,
 #btn-actualizar {
@@ -59,12 +62,46 @@ body {
     }
 }
 
-table {
-    background-color: #ffffffd0;
+/* TABLE */
+.table {
+    background-color: #ff89c0d0 !important;
+    border-collapse: collapse !important;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3) !important;
 }
 
-thead {
-    background-color: rgb(87, 81, 126);
+.table thead {
+    background-color: rgb(87, 81, 126) !important;
+}
+
+.table thead tr {
+    background-color: rgb(87, 81, 126) !important;
+}
+
+.table thead th {
+    color: #fff !important;
+    font-weight: 600 !important;
+    padding: 15px !important;
+    text-align: left !important;
+    border-bottom: 2px solid rgb(146, 0, 68) !important;
+    background-color: rgb(87, 81, 126) !important;
+}
+
+.table tbody tr {
+    border-bottom: 1px solid rgba(146, 0, 68, 0.3) !important;
+    transition: all 0.3s ease !important;
+    background-color: #ff89c0d0 !important;
+}
+
+.table tbody tr:hover {
+    background-color: rgba(146, 0, 68, 0.2) !important;
+    transform: scale(1.01) !important;
+}
+
+.table tbody td,
+.table tbody th {
+    padding: 12px 15px !important;
+    color: #333 !important;
+    color: #333;
 }
 
 button:hover:active {

@@ -38,8 +38,7 @@ class Ghoul
         $stmt = $this->conn->prepare($query);
 
         // Limpiar y enlazar parámetros
-        $this->name = $this->name;
-        //$this->rank = $this->rank;
+        $this->ghoulid = $this->ghoulid;
         // ... validaciones si fueran necesarias
 
         $stmt->bindParam(":ghoulid", $this->ghoulid);
@@ -68,7 +67,7 @@ class Ghoul
                                                // podía haber puesto, que fuera como un objeto FETCH_OBJ
                                             
         if ($row) {                            // ahora se procesa cada campo con las key del array asociativo
-            $this->name = $row['ghoulid'];
+            $this->ghoulid = $row['ghoulid'];
             $this->name = $row['name'];    // si se hubiera convertido en un objeto, trabajaría con $row -> name
             $this->rank = $row['rank'];
             $this->kagune = $row['kagune'];

@@ -45,9 +45,7 @@ CREATE TABLE `admins` (
 --
 
 INSERT INTO `admins` (`agentid`, `password`, `last_name`, `name`) VALUES
-('MK001', 'KureoMad0_!', 'Mado', 'Kureo');
-
-INSERT INTO `admins` (`agentid`, `password`, `last_name`, `name`) VALUES
+('MK001', 'KureoMad0_!', 'Mado', 'Kureo'),
 ('TN219', '@tsuri-wLuV33', 'Nori', 'Tsuda');
 
 --
@@ -73,11 +71,11 @@ CREATE TABLE `ghouls` (
 -- Volcado de datos para la tabla `ghouls`
 --
 
-INSERT INTO `ghouls` (`ghoulid`, `name`, `rank`, `kagune`, `district`, `organization_member`, `first_detected_activity`) VALUES
-('PE-kk001', 'Eyepatch', 'SSS', 'Rinkaku', 20, 1, '2012-10-16');
-
-INSERT INTO `ghouls` (`ghoulid`, `name`, `rank`, `kagune`, `district`, `organization_member`, `first_detected_activity`) VALUES
-('GM-ts012', 'Gourmet', 'SSS', 'Koukaku', NULL, 0, '2004-04-2');
+INSERT INTO `ghouls` (`ghoulid`, `name`, `rank`, `kagune`, `ward`, `contained`, `first_detected_activity`) VALUES
+('PE-kk001', 'Eyepatch', 'SSS', 'Rinkaku', 20, 0, '2012-10-16'),
+('GM-ts012', 'Gourmet', 'SSS', 'Koukaku', 24, 0, '2004-04-02'),
+('BD-ik008', 'Black Dog', 'SS', 'Ukaku', 20, 1, '1999-07-18'),
+('RV-yr777', 'Raven', NULL, 'Rinkaku', 4, 0, '1998-08-01');
 
 --
 -- Índices para tablas volcadas

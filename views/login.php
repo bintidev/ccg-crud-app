@@ -20,6 +20,7 @@ if (isset($_SESSION['usuario_logueado'])) {  // si el usuario estuviera ya logea
     <link rel="stylesheet" href="public/css/forms-style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 </head>
 
 <body class="d-flex flex-column justify-content-center align-items-center">
@@ -55,9 +56,7 @@ if (isset($_SESSION['usuario_logueado'])) {  // si el usuario estuviera ya logea
                 border: solid 1px rgb(97, 16, 43);
                 color: rgb(97, 16, 43);">';
 
-                echo '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-circle-fill" viewBox="0 0 16 16">
-                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4m.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2"/>
-                </svg> &nbsp;' . $_SESSION['error'];
+                echo '<i class="bi bi-exclamation-circle-fill"></i> &nbsp;' . $_SESSION['error'];
 
                 echo '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>';
                 echo '</div>';
@@ -139,7 +138,7 @@ if (isset($_SESSION['usuario_logueado'])) {  // si el usuario estuviera ya logea
         
     </div>
 
-    <script src="public/js/validation.js"></script>
+    <script src="public/js/login-validation.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"

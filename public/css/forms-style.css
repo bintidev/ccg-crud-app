@@ -105,22 +105,29 @@ form p {
 }
 
 /* BUTTON */
-#login-btn {
+button,
+#login-btn,
+a {
     --webkit-appearance: none;
     padding: 15px 40px;
     background-color: rgb(97, 16, 43);
     /* saturate($primary, 30%) */
-    font-size: 14px;
+    font-size: 20px;
     box-shadow: 0px 2px 6px -1px rgba(255, 63, 153, 0.13);
     transition: all .3s ease;
 }
 
-#login-btn:hover {
+button:hover,
+#login-btn:hover,
+a:hover {
+    box-shadow: 0 0 10px rgb(216, 0, 101);
     transform: translateY(-3px);
     background-color: rgb(146, 0, 68);
 }
 
-#login-btn:hover:active {
+button:hover:active,
+#login-btn:hover:active,
+a:hover:active {
     transform: scale(.99);
 }
 

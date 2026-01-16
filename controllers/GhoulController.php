@@ -24,13 +24,13 @@ class GhoulController
 
     public function create()
     {
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        //if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $this->ghoul->ghoulid = $_POST['ghoulid'];
             $this->ghoul->name = $_POST['name'];
             $this->ghoul->rank = $_POST['rank'];
-            $this->ghoul->kagune = $_POST['kagune'];
+            $this->ghoul->kagune = $_POST['kagune'] == 'uka' ? 'Ukaku' : ($_POST['kagune'] == 'kou' ? 'Koukaku' : ($_POST['kagune'] == 'rin' ? 'Rinkaku' : ($_POST['kagune'] == 'bik' ? 'Bikaku' : '')));
             $this->ghoul->ward = $_POST['ward'];
-            $this->ghoul->contained = isset($_POST['contained']) ? 1 : 0;
+            $this->ghoul->contained = intval($_POST['contained']);
             $this->ghoul->first_detected_activity = $_POST['first_detected_activity'];
 
             if ($this->ghoul->create()) {
@@ -40,9 +40,9 @@ class GhoulController
                 $_SESSION['error'] = "Error al crear alumno.";
                 include 'views/create.php'; // Recargar vista con error
             }
-        } else {
+        /*} else {
             include 'views/create.php';
-        }
+        }*/
     }
 
     public function edit()
@@ -52,9 +52,9 @@ class GhoulController
             $this->ghoul->ghoulid = $_POST['ghoulid'];
             $this->ghoul->name = $_POST['name'];
             $this->ghoul->rank = $_POST['rank'];
-            $this->ghoul->kagune = $_POST['kagune'];
+            $this->ghoul->kagune = $_POST['kagune'] == 'uka' ? 'Ukaku' : ($_POST['kagune'] == 'kou' ? 'Koukaku' : ($_POST['kagune'] == 'rin' ? 'Rinkaku' : ($_POST['kagune'] == 'bik' ? 'Bikaku' : '')));
             $this->ghoul->ward = $_POST['ward'];
-            $this->ghoul->contained = isset($_POST['contained']) == 1 ? 'Yes' : 'No';
+            $this->ghoul->contained = intval($_POST['contained']);
             $this->ghoul->first_detected_activity = $_POST['first_detected_activity'];
 
 
@@ -71,7 +71,7 @@ class GhoulController
             $this->ghoul->id = $_GET['id'];
             $this->ghoul->readOne();
             if ($this->ghoul->name) {
-                $_SESSION['ghoul_data'] = (object)['ghoulid' => $this->ghoul->ghoulid, 'name' => $this->ghoul->name, 'rank' => $this->ghoul->rank,
+                $_SESSION['ghoul_data'] = (object)['id' => $this->ghoul->id, 'ghoulid' => $this->ghoul->ghoulid, 'name' => $this->ghoul->name, 'rank' => $this->ghoul->rank,
                 'kagune' => $this->ghoul->kagune, 'contained' => $this->ghoul->contained, 'first_detected_activity' => $this->ghoul->first_detected_activity];
                 include 'views/edit.php';
             } else {
