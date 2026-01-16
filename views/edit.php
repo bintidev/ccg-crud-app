@@ -37,40 +37,29 @@
 
             <div class="floating-label mb-5">
                 <label for="rank">Rank</label>
-                <input type="text" name="rank" id="rank" value="<?php echo htmlspecialchars($_SESSION['ghoul_data']->rank); ?>">
+                <input type="text" name="rank" id="rank" value="<?php echo htmlspecialchars($_SESSION['ghoul_data']->rank ? $_SESSION['ghoul_data']->rank : ''); ?>">
             </div>
 
             <div class="floating-label mb-3">
                 <label>Kagune</label>
-                <select class="form-select" aria-label="Default select example" id="kagune">
+                <select class="form-select" aria-label="Default select example" name="kagune" id="kagune">
                     <option selected value="">Select kagune type</option>
-                    <option value="uka" <?php echo ($_SESSION['ghoul_data']->kagune == 'Ukaku') ? 'selected' : ''; ?>>Ukaku</option>
-                    <option value="kou" <?php echo ($_SESSION['ghoul_data']->kagune == 'Koukaku') ? 'selected' : ''; ?>>Koukaku</option>
-                    <option value="rin" <?php echo ($_SESSION['ghoul_data']->kagune == 'Rinkaku') ? 'selected' : ''; ?>>Rinkaku</option>
-                    <option value="bik" <?php echo ($_SESSION['ghoul_data']->kagune == 'Bikaku') ? 'selected' : ''; ?>>Bikaku</option>
+                    <option value="uka" <?php echo htmlspecialchars($_SESSION['ghoul_data']->kagune == 'Ukaku') ? 'selected' : ''; ?>>Ukaku</option>
+                    <option value="kou" <?php echo htmlspecialchars($_SESSION['ghoul_data']->kagune == 'Koukaku') ? 'selected' : ''; ?>>Koukaku</option>
+                    <option value="rin" <?php echo htmlspecialchars($_SESSION['ghoul_data']->kagune == 'Rinkaku') ? 'selected' : ''; ?>>Rinkaku</option>
+                    <option value="bi" <?php echo htmlspecialchars($_SESSION['ghoul_data']->kagune == 'Bikaku') ? 'selected' : ''; ?>>Bikaku</option>
                 </select>
             </div>
 
             <div class="floating-label mb-3">
                 <label for="ward">Ward</label>
-                <input type="number" name="ward" id="ward" value="<?php echo htmlspecialchars($_SESSION['ghoul_data']->ward); ?>">
+                <input type="number" name="ward" id="ward" value="<?php echo $_SESSION['ghoul_data']->ward ? $_SESSION['ghoul_data']->ward : 0; ?>">
             </div>
 
             <div class="mb-3">
-                <label class="d-block mb-2">Contained</label>
-                <div class="radio-group" id="containment_status">
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="radioDefault" id="contained" value="1">
-                        <label class="form-check-label" for="contained">
-                            Yes
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="radioDefault" id="notcontained" value="0">
-                        <label class="form-check-label" for="notcontained">
-                            No
-                        </label>
-                    </div>
+                <div class="form-check form-switch containment_status">
+                    <input class="form-check-input" type="checkbox" name="contained" role="switch" id="contained" <?php echo ($_SESSION['ghoul_data']->contained == 0) ? '' : 'checked'; ?>>
+                    <label class="form-check-label" for="switchCheckChecked">Contained</label>
                 </div>
                 <div id="ccontainment_statusHelp" class="form-text text-danger"></div>
             </div>

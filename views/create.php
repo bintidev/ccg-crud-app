@@ -45,10 +45,10 @@
                 <label for="kagune">Kagune</label>
                 <select class="form-select" aria-label="Default select example" name="kagune" id="kagune">
                     <option selected value="">Select kagune type</option>
-                    <option value="1">Ukaku</option>
-                    <option value="2">Koukaku</option>
-                    <option value="3">Rinkaku</option>
-                    <option value="4">Bikaku</option>
+                    <option value="uka">Ukaku</option>
+                    <option value="kou">Koukaku</option>
+                    <option value="rin">Rinkaku</option>
+                    <option value="bi">Bikaku</option>
                 </select>
                 <div id="kaguneHelp" class="form-text text-danger"></div>
             </div>
@@ -60,22 +60,11 @@
             </div>
 
             <div class="mb-3">
-                <label class="d-block mb-2">Contained</label>
-                <div class="radio-group">
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="contained" id="contained" value="yes">
-                        <label class="form-check-label" for="containedYes">
-                            Yes
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="contained" id="notcontained" value="no" checked>
-                        <label class="form-check-label" for="containedNo">
-                            No
-                        </label>
-                    </div>
+                <div class="form-check form-switch containment_status">
+                    <input class="form-check-input" type="checkbox" name="contained" role="switch" id="contained">
+                    <label class="form-check-label" for="switchCheckChecked">Contained</label>
                 </div>
-                <div id="containedHelp" class="form-text text-danger"></div>
+                <div id="ccontainment_statusHelp" class="form-text text-danger"></div>
             </div>
             
             <div class="floating-label mb-5">

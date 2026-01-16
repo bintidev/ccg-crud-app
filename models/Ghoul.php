@@ -59,7 +59,7 @@ class Ghoul
     // Método para leer un solo alumno (para editar)
     public function readOne()
     {
-        $query = "SELECT * FROM " . $this->table_name . " WHERE id = ? LIMIT 0,1";
+        $query = "SELECT * FROM " . $this->table_name . " WHERE id = ?";
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(1, $this->id);
         $stmt->execute();                      // después de un select siempre se obtiene una tabla, y hay que "cortar" filas
@@ -80,7 +80,7 @@ class Ghoul
     // Método para actualizar un alumno
     public function update()
     {
-        $query = "UPDATE " . $this->table_name . " SET ghoulid=:ghoulid, name=:name, rank=:rank, kagune=:kagune, ward=:ward, contained=:contained, first_detected_activity=:first_detected_activity";
+        $query = "UPDATE " . $this->table_name . " SET ghoulid=:ghoulid, name=:name, rank=:rank, kagune=:kagune, ward=:ward, contained=:contained, first_detected_activity=:first_detected_activity WHERE id=:id";
         $stmt = $this->conn->prepare($query);
 
         $stmt->bindParam(":ghoulid", $this->ghoulid);
@@ -88,8 +88,9 @@ class Ghoul
         $stmt->bindParam(":rank", $this->rank);                      // es autoincremental
         $stmt->bindParam(":kagune", $this->kagune);
         $stmt->bindParam(":ward", $this->ward, PDO::PARAM_INT);            // se convierte explicitamente en entero
-        $stmt->bindParam(":contained", $this->contained, PDO::PARAM_BOOL);
+        $stmt->bindParam(":contained", $this->contained, PDO::PARAM_INT);
         $stmt->bindParam(":first_detected_activity", $this->first_detected_activity);          // la cadena obtenida en el formulario se convierte en int
+        $stmt->bindParam(":id", $this->id); // el id va al final, es el WHERE
 
         if ($stmt->execute()) {
             return true;

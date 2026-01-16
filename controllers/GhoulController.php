@@ -24,25 +24,25 @@ class GhoulController
 
     public function create()
     {
-        //if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $this->ghoul->ghoulid = $_POST['ghoulid'];
             $this->ghoul->name = $_POST['name'];
-            $this->ghoul->rank = $_POST['rank'];
-            $this->ghoul->kagune = $_POST['kagune'] == 'uka' ? 'Ukaku' : ($_POST['kagune'] == 'kou' ? 'Koukaku' : ($_POST['kagune'] == 'rin' ? 'Rinkaku' : ($_POST['kagune'] == 'bik' ? 'Bikaku' : '')));
-            $this->ghoul->ward = $_POST['ward'];
-            $this->ghoul->contained = intval($_POST['contained']);
+            $this->ghoul->rank = $_POST['rank'] == '' ? NULL : $_POST['rank'];
+            $this->ghoul->kagune = $_POST['kagune'] == 'uka' ? 'Ukaku' : ($_POST['kagune'] == 'kou' ? 'Koukaku' : ($_POST['kagune'] == 'rin' ? 'Rinkaku' : ($_POST['kagune'] == 'bi' ? 'Bikaku' : '')));
+            $this->ghoul->ward = $_POST['ward'] == 0 ? NULL : $_POST['ward'];
+            $this->ghoul->contained = $_POST['contained'] ? 0 : 1;
             $this->ghoul->first_detected_activity = $_POST['first_detected_activity'];
 
             if ($this->ghoul->create()) {
                 header("Location: index.php?action=dashboard&message=created");
                 exit();
             } else {
-                $_SESSION['error'] = "Error al crear alumno.";
+                $_SESSION['error'] = "Error. unable to add Ghoul.";
                 include 'views/create.php'; // Recargar vista con error
             }
-        /*} else {
+        } else {
             include 'views/create.php';
-        }*/
+        }
     }
 
     public function edit()
@@ -51,10 +51,10 @@ class GhoulController
             // Lógica de actualización (UPDATE)
             $this->ghoul->ghoulid = $_POST['ghoulid'];
             $this->ghoul->name = $_POST['name'];
-            $this->ghoul->rank = $_POST['rank'];
-            $this->ghoul->kagune = $_POST['kagune'] == 'uka' ? 'Ukaku' : ($_POST['kagune'] == 'kou' ? 'Koukaku' : ($_POST['kagune'] == 'rin' ? 'Rinkaku' : ($_POST['kagune'] == 'bik' ? 'Bikaku' : '')));
-            $this->ghoul->ward = $_POST['ward'];
-            $this->ghoul->contained = intval($_POST['contained']);
+            $this->ghoul->rank = $_POST['rank'] == '' ? NULL : $_POST['rank'];
+            $this->ghoul->kagune = $_POST['kagune'] == 'uka' ? 'Ukaku' : ($_POST['kagune'] == 'kou' ? 'Koukaku' : ($_POST['kagune'] == 'rin' ? 'Rinkaku' : ($_POST['kagune'] == 'bi' ? 'Bikaku' : '')));
+            $this->ghoul->ward = $_POST['ward'] == 0 ? NULL : $_POST['ward'];
+            $this->ghoul->contained = $_POST['contained'] ? 0 : 1;
             $this->ghoul->first_detected_activity = $_POST['first_detected_activity'];
 
 
@@ -62,7 +62,7 @@ class GhoulController
                 header("Location: index.php?action=dashboard&message=updated");
                 exit();
             } else {
-                $_SESSION['error'] = "Error al actualizar.";
+                $_SESSION['error'] = "Error. Unable to update.";
             }
         }
 
@@ -75,7 +75,7 @@ class GhoulController
                 'kagune' => $this->ghoul->kagune, 'contained' => $this->ghoul->contained, 'first_detected_activity' => $this->ghoul->first_detected_activity];
                 include 'views/edit.php';
             } else {
-                $_SESSION['error'] = "Ghoul no encontrado.";
+                $_SESSION['error'] = "Error. Ghoul not found.";
             }
         }
     }
@@ -88,7 +88,7 @@ class GhoulController
                 header("Location: index.php?action=dashboard&message=deleted");
                 exit();
             } else {
-                header("Location: index.php?action=dashboard&message=error_delete");
+                header("Location: index.php?action=dashboard");
                 exit();
             }
         }

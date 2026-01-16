@@ -9,6 +9,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="public/css/header-style.css">
     <link rel="stylesheet" href="public/css/dashboard-style.css">
 </head>
 
@@ -16,7 +17,7 @@
 
     <?php include 'templates/header.php'; ?>
 
-    <div class="container d-flex justify-content-center align-items-center w-100" style="height: 80vh;">
+    <div class="container d-flex justify-content-center align-items-center w-100" style="height: auto;">
 
         <div>
             
@@ -49,7 +50,9 @@
                     if ($_GET['message'] == 'updated') echo 'Ghoul updated successfully.';
                     if ($_GET['message'] == 'deleted') echo 'Ghoul deleted successfully.';
                     ?>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
+                <?php unset($_GET['message']); // para que no aparezca el mensaje al recargar la página ?>
             <?php endif; ?>
 
             <a class="btn btn-primary p-2 mb-3" id="btn-crear" href="index.php?action=create">Add new ghoul</a>
@@ -65,7 +68,7 @@
                         <th scope="col">Ward</th>
                         <th scope="col">Contained</th>
                         <th scope="col">First Activity</th>
-                        <th scope="col">Acciones</th>
+                        <th scope="col">Actions</th>
                     </tr>
                 </thead>
                 <tbody class="table-group-divider">
@@ -74,9 +77,9 @@
                             <th scope="row"><?php echo $ghoul['id']; ?></th>
                             <td><?php echo $ghoul['ghoulid']; ?></td>
                             <td><?php echo htmlspecialchars($ghoul['name']); ?></td>
-                            <td><?php echo htmlspecialchars($ghoul['rank']); ?></td>
+                            <td><?php echo htmlspecialchars($ghoul['rank']) ? htmlspecialchars($ghoul['rank']) : '-'; ?></td>
                             <td><?php echo htmlspecialchars($ghoul['kagune']); ?></td>
-                            <td><?php echo $ghoul['ward']; ?></td>
+                            <td><?php echo $ghoul['ward'] == 0 ? '-' : $ghoul['ward']; ?></td>
                             <td><?php echo $ghoul['contained'] == 1 ? 'Yes' : 'No'; ?></td>
                             <td><?php echo $ghoul['first_detected_activity']; ?></td>
                             <td>

@@ -62,8 +62,8 @@ CREATE TABLE `ghouls` (
   `name` varchar(100) NOT NULL,
   `rank` varchar(3),
   `kagune` enum('Ukaku','Koukaku','Rinkaku','Bikaku') NOT NULL,
-  `district` int(11),
-  `organization_member` tinyint(1) NOT NULL,
+  `ward` int(11),
+  `contained` tinyint(1) NOT NULL,
   `first_detected_activity` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
@@ -81,7 +81,7 @@ INSERT INTO `ghouls` (`ghoulid`, `name`, `rank`, `kagune`, `ward`, `contained`, 
 -- Índices para tablas volcadas
 --
 
-
+DROP USER IF EXISTS `login-php`@`localhost`;
 GRANT SELECT, INSERT, UPDATE, DELETE, REFERENCES, DELETE HISTORY ON *.* TO `login-php`@`localhost` IDENTIFIED BY PASSWORD '*2A80256C5318AF3140A37693CCD04CE699D8D947';
 
 --

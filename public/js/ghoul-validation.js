@@ -7,8 +7,6 @@ document.getElementById("actionForm").addEventListener("submit", function valida
     let name = document.getElementById('name').value;
     let kagune = document.getElementById('kagune').value;
     let ward = parseInt(document.getElementById('ward').value);
-    let contained = document.getElementById('contained');
-    let notcontained = document.getElementById('notcontained');
     let first_activity = document.getElementById('first_detected_activity').value;
 
     let correcto = true;
@@ -44,19 +42,10 @@ document.getElementById("actionForm").addEventListener("submit", function valida
     }
 
     // ward validation
-    if (ward != null && isNaN(ward)) {
+    if (isNaN(ward)) {
 
         msj = 'Ward cannot be empty';
         marcarError('ward', msj);
-        correcto = false;
-
-    }
-
-    // containment status validation
-    if (contained.checked === null && notcontained.checked === null) {
-
-        msj = 'Containment status must be specified';
-        marcarError('containment_status', msj);
         correcto = false;
 
     }
@@ -78,7 +67,6 @@ document.getElementById('ghoulid').addEventListener("change", () => { limpiarErr
 document.getElementById('name').addEventListener("change", () => { limpiarError('name') });
 document.getElementById('kagune').addEventListener("change", () => { limpiarError('kagune') });
 document.getElementById('ward').addEventListener("change", () => { limpiarError('ward') });
-document.getElementById('containment_status').addEventListener("input", () => { limpiarError('containment_status') });
 document.getElementById('first_detected_activity').addEventListener("change", () => { limpiarError('first_detected_activity') });
 
 function marcarError(id, msj) {
