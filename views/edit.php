@@ -53,7 +53,7 @@
 
             <div class="floating-label mb-3">
                 <label for="ward">Ward</label>
-                <input type="number" name="ward" id="ward" value="<?php echo $_SESSION['ghoul_data']->ward ? $_SESSION['ghoul_data']->ward : 0; ?>">
+                <input type="number" name="ward" id="ward" value="<?php echo $_SESSION['ghoul_data']->ward ? $_SESSION['ghoul_data']->ward : '0'; ?>">
             </div>
 
             <div class="mb-3">

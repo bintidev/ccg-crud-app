@@ -66,7 +66,8 @@ class Ghoul
         $row = $stmt->fetch(PDO::FETCH_ASSOC); // aquí se extrae una fila como si fuera un array asociativo
                                                // podía haber puesto, que fuera como un objeto FETCH_OBJ
                                             
-        if ($row) {                            // ahora se procesa cada campo con las key del array asociativo
+        if ($row) {     
+            $this->id = $row['id'];
             $this->ghoulid = $row['ghoulid'];
             $this->name = $row['name'];    // si se hubiera convertido en un objeto, trabajaría con $row -> name
             $this->rank = $row['rank'];

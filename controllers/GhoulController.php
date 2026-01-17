@@ -49,6 +49,7 @@ class GhoulController
     {
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Lógica de actualización (UPDATE)
+            $this->ghoul->id = $_POST['id'];
             $this->ghoul->ghoulid = $_POST['ghoulid'];
             $this->ghoul->name = $_POST['name'];
             $this->ghoul->rank = $_POST['rank'] == '' ? NULL : $_POST['rank'];

@@ -121,17 +121,7 @@ if (isset($_SESSION['usuario_logueado'])) {  // si el usuario estuviera ya logea
             </div>
 
             <div>
-
-                <?php 
-
-                    if (isset($_SESSION['blocked']) && $_SESSION['blocked']) {
-                        echo '<input class="btn text-center text-white fw-500 border border-0 rounded-2" id="login-btn" type="submit" value="Login" disabled>';
-                    } else {
-                        echo '<input class="btn text-center text-white fw-500 border border-0 rounded-2" id="login-btn" type="submit" value="Login">';
-                    }
-
-                ?>
-
+                <input class="btn text-center text-white fw-500 border border-0 rounded-2" id="login-btn" type="submit" value="Login" <?php echo (isset($_SESSION['blocked']) && $_SESSION['blocked']) ? 'disabled' : ''; ?>>
             </div>
 
         </form>
