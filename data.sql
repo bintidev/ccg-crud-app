@@ -75,7 +75,9 @@ INSERT INTO `ghouls` (`ghoulid`, `name`, `rank`, `kagune`, `ward`, `contained`, 
 ('PE-kk001', 'Eyepatch', 'SSS', 'Rinkaku', 20, 0, '2012-10-16'),
 ('GM-ts012', 'Gourmet', 'SSS', 'Koukaku', 24, 0, '2004-04-02'),
 ('BD-ik008', 'Black Dog', 'SS', 'Ukaku', 20, 1, '1999-07-18'),
-('RV-yr777', 'Raven', NULL, 'Rinkaku', 4, 0, '1998-08-01');
+('RV-yr777', 'Raven', NULL, 'Rinkaku', 4, 0, '1998-08-01'),
+('YS-fh418', 'Yotsume', 'SS', 'Koukaku', 0, 0, '2018-09-23'),
+('BE-kr733', 'Big Eater', 'S', 'Rinkaku', 11, 1, '1997-07-03');
 
 --
 -- Índices para tablas volcadas
