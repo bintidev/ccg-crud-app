@@ -1,6 +1,6 @@
 
 <!-- Header -->
-<nav class="navbar navbar-expand-lg mb-5">
+<nav class="navbar navbar-expand-lg w-100 mb-5">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">
             <img src="public/img/ccg_logo.png" alt="Logo" width="65.5px" id="logo">

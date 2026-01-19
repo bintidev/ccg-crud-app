@@ -46,9 +46,9 @@
                     // aquí se mostrarían los diferentes mensajes de confirmación tras la realización
                     // de cualquiera de las 3 operaciones restantes: crear, modificar, eliminar
                     // ya que volveremos a esta vista
-                    if ($_GET['message'] == 'created') echo 'Ghoul added successfully.';
-                    if ($_GET['message'] == 'updated') echo 'Ghoul updated successfully.';
-                    if ($_GET['message'] == 'deleted') echo 'Ghoul deleted successfully.';
+                    if ($_GET['message'] == 'created') echo 'Ghoul added successfully.'; else 'ERRO! Ghoul could not be added.';
+                    if ($_GET['message'] == 'updated') echo 'Ghoul updated successfully.'; else 'ERROR! Ghoul could not be updated.';
+                    if ($_GET['message'] == 'deleted') echo 'Ghoul deleted successfully.'; else 'ERROR! Ghoul could not be deleted.';
                     ?>
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>

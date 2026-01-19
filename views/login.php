@@ -17,9 +17,9 @@ if (isset($_SESSION['usuario_logueado'])) {  // si el usuario estuviera ya logea
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Access Form</title>
     <link rel="shortcut icon" href="public/img/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="public/css/forms-style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="public/css/forms-style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 </head>
 
@@ -56,7 +56,7 @@ if (isset($_SESSION['usuario_logueado'])) {  // si el usuario estuviera ya logea
                 border: solid 1px rgb(97, 16, 43);
                 color: rgb(97, 16, 43);">';
 
-                echo '<i class="bi bi-exclamation-circle-fill"></i> &nbsp;' . $_SESSION['error'];
+                echo '<i class="bi bi-exclamation-circle-fill"></i> &nbsp; <b>ERROR!</b> ' . $_SESSION['error'];
 
                 echo '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>';
                 echo '</div>';
@@ -69,9 +69,8 @@ if (isset($_SESSION['usuario_logueado'])) {  // si el usuario estuviera ya logea
             <!-- Campo de ID Agente -->
             <div class="floating-label mb-3">
 
-                <input placeholder="Agent ID" type="text" name="agentId" id="agentId" autocomplete="off">
+                <input placeholder="Ex. AA000" type="text" name="agentId" id="agentId" autocomplete="off">
                 <label for="agentId">Agent ID:</label>
-                <div class="form-text text-danger" id="agentIdHelp"></div>
 
                 <div class="icon">
                     <xml version="1.0" encoding="UTF-8">
@@ -90,7 +89,6 @@ if (isset($_SESSION['usuario_logueado'])) {  // si el usuario estuviera ya logea
 
                 <input placeholder="Password" type="password" name="passwd" id="passwd" autocomplete="off">
                 <label for="passwd">Password:</label>
-                <div class="form-text text-danger" id="passwdHelp"></div>
 
                 <div class="icon">
                     <xml version="1.0" encoding="UTF-8">
@@ -128,7 +126,7 @@ if (isset($_SESSION['usuario_logueado'])) {  // si el usuario estuviera ya logea
         
     </div>
 
-    <script src="public/js/login-validation.js"></script>
+    <script src="public/js/user-validation.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"

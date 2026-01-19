@@ -41,7 +41,7 @@ class AuthController                                   // la clase AuthControlle
                     $_SESSION['blocked'] = false; // indica si el usuario está bloqueado
                 }
 
-                if(time() - $_SESSION['last_attempt'] > $_SESSION['next_attempt'] && $_SESSION['attempts'] >=5) {
+                if(time() - $_SESSION['last_attempt'] >= $_SESSION['next_attempt'] && $_SESSION['attempts'] >=5) {
                     // si ha pasado el tiempo de espera, reseteamos los intentos
                     $_SESSION['attempts'] = 0;
                     $_SESSION['next_attempt'] = 900; // reseteamos el tiempo de espera a 15 mins
@@ -78,7 +78,7 @@ class AuthController                                   // la clase AuthControlle
 
                     } else {
                         // Autenticación exitosa, iniciar sesión y redirigir al enrutador para que éste envíe al dashboard-inicio
-                        $_SESSION['idusuario'] = $username;
+                        $_SESSION['idusuario'] = $login['last_name'];
                         $_SESSION['attempts'] = 0;
                         header('Location: index.php?action=dashboard');
                         exit();

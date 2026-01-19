@@ -10,74 +10,80 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="public/css/forms-style.css">
-    <link rel="stylesheet" href="public/css/editar-style.css">
+    <link rel="stylesheet" href="public/css/header-style.css">
 </head>
 
-<body class="d-flex flex-column justify-content-center align-items-center">
+<body>
 
-    <div class="background-animated"></div>
+    <?php include 'templates/header.php'; ?>
 
-    <div class="wrapper row" id="container">
+    <div class="d-flex justify-content-center align-items-center">
 
-        <form method="POST" class="d-flex justify-content-center align-items-center"
-        action="index.php?action=create" id="actionForm">
-            <h4>Add Ghoul to System</h4>
+        <div class="background-animated"></div>
 
-            <div class="floating-label mb-3">
-                <label for="ghoulid">Ghoul ID</label>
-                <input type="text" name="ghoulid" id="ghoulid" placeholder="Ghoul ID">
-                <div id="ghoulidHelp" class="form-text text-danger"></div>
-            </div>
+        <div class="wrapper w-50" id="container">
 
-            <div class="floating-label mb-3">
-                <label for="name">Name</label>
-                <input type="text" name="name" id="name" placeholder="Name">
-                <div id="nameHelp" class="form-text text-danger"></div>
-            </div>
+            <form method="POST" class="d-flex justify-content-center align-items-center w-100"
+            action="index.php?action=create" id="actionForm">
+                <h4>Add Ghoul to System</h4>
 
-            <div class="floating-label mb-3">
-                <label for="rank">Rank</label>
-                <input type="text" name="rank" id="rank" placeholder="Rank">
-                <div id="rankHelp" class="form-text text-danger"></div>
-            </div>
-
-            <div class="floating-label mb-3">
-                <label for="kagune">Kagune</label>
-                <select class="form-select" aria-label="Default select example" name="kagune" id="kagune">
-                    <option selected value="">Select kagune type</option>
-                    <option value="uka">Ukaku</option>
-                    <option value="kou">Koukaku</option>
-                    <option value="rin">Rinkaku</option>
-                    <option value="bi">Bikaku</option>
-                </select>
-                <div id="kaguneHelp" class="form-text text-danger"></div>
-            </div>
-
-            <div class="floating-label mb-3">
-                <label for="ward">Ward</label>
-                <input type="number" name="ward" id="ward" placeholder="Ward">
-                <div id="wardHelp" class="form-text text-danger"></div>
-            </div>
-
-            <div class="mb-3">
-                <div class="form-check form-switch containment_status">
-                    <input class="form-check-input" type="checkbox" name="contained" role="switch" id="contained">
-                    <label class="form-check-label" for="switchCheckChecked">Contained</label>
+                <div class="floating-label mb-3">
+                    <input type="text" name="ghoulid" id="ghoulid" placeholder="AA-bb000">
+                    <label for="ghoulid">Ghoul ID</label>
+                    <!--<div id="ghoulidHelp" class="form-text text-danger"></div>-->
                 </div>
-                <div id="ccontainment_statusHelp" class="form-text text-danger"></div>
-            </div>
-            
-            <div class="floating-label mb-5">
-                <label for="first_detected_activity">First Detected Activity</label>
-                <input type="date" name="first_detected_activity" id="first_detected_activity">
-                <div id="first_detected_activityHelp" class="form-text text-danger"></div>
-            </div>
 
-            <div class="form-buttons">
-                <button type="submit" class="btn p-3" id="btn-crear">Add Ghoul</button>
-                <a class="btn p-3" href="index.php?action=index">Back to dashboard</a>
-            </div>
-        </form>
+                <div class="floating-label mb-3">
+                    <input type="text" name="name" id="name" placeholder="Name">
+                    <label for="name">Name</label>
+                    <!--<div id="nameHelp" class="form-text text-danger"></div>-->
+                </div>
+
+                <div class="floating-label mb-3">
+                    <input type="text" name="rank" id="rank" placeholder="Leave empty if unknown">
+                    <label for="rank">Rank</label>
+                    <!--<div id="rankHelp" class="form-text text-danger"></div>-->
+                </div>
+
+                <div class="floating-label mb-3">
+                    <select class="form-select" aria-label="Default select example" name="kagune" id="kagune">
+                        <option selected value="">Select kagune type</option>
+                        <option value="uka">Ukaku</option>
+                        <option value="kou">Koukaku</option>
+                        <option value="rin">Rinkaku</option>
+                        <option value="bi">Bikaku</option>
+                    </select>
+                    <label for="kagune">Kagune</label>
+                    <!--<div id="kaguneHelp" class="form-text text-danger"></div>-->
+                </div>
+
+                <div class="floating-label mb-3">
+                    <input type="number" name="ward" id="ward" placeholder="Type 0 if unknown">
+                    <label for="ward">Ward</label>
+                    <!--<div id="wardHelp" class="form-text text-danger"></div>-->
+                </div>
+
+                <div class="mb-3">
+                    <div class="form-check form-switch containment_status">
+                        <input class="form-check-input" type="checkbox" name="contained" role="switch" id="contained">
+                        <label class="form-check-label" for="switchCheckChecked">Contained</label>
+                    </div>
+                    <!--<div id="ccontainment_statusHelp" class="form-text text-danger"></div>-->
+                </div>
+                
+                <div class="floating-label mb-5">
+                    <input type="date" name="first_detected_activity" id="first_detected_activity">
+                    <label for="first_detected_activity">First Detected Activity</label>
+                    <!--<div id="first_detected_activityHelp" class="form-text text-danger"></div>-->
+                </div>
+
+                <div class="form-buttons">
+                    <button type="submit" class="btn p-3" id="btn-crear">Add Ghoul</button>
+                    <a class="btn p-3" href="index.php?action=index">Back to dashboard</a>
+                </div>
+            </form>
+
+        </div>
 
     </div>
 

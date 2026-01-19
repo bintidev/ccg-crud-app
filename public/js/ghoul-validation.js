@@ -59,7 +59,7 @@ document.getElementById("actionForm").addEventListener("submit", function valida
 
     }
 
-    if (correcto) { document.getElementsByTagName("form")[0].submit() };
+    if (correcto) { document.getElementById("actionForm").submit() };
 
 })
 
@@ -71,13 +71,16 @@ document.getElementById('first_detected_activity').addEventListener("change", ()
 
 function marcarError(id, msj) {
 
-    document.getElementById(id + 'Help').innerText = msj;
-    document.getElementById(id + 'Help').style.visibility = 'visible';
+    let help = document.createElement('div');
+    help.setAttribute('class', 'form-text text-danger');
+    help.setAttribute('id', id + 'Help');
+    help.append(msj);
+    document.getElementById(id).after(help);
 
 }
 
 function limpiarError(id) {
 
-    document.getElementById(id + 'Help').style.visibility = 'hidden';
+    document.getElementById(id + 'Help').remove();
 
 }

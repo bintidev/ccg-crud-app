@@ -107,7 +107,7 @@ form p {
 /* BUTTON */
 button,
 #login-btn,
-a {
+a.btn {
     --webkit-appearance: none;
     padding: 15px 40px;
     background-color: rgb(97, 16, 43);
@@ -119,7 +119,7 @@ a {
 
 button:hover,
 #login-btn:hover,
-a:hover {
+a.btn:hover {
     box-shadow: 0 0 10px rgb(216, 0, 101);
     transform: translateY(-3px);
     background-color: rgb(146, 0, 68);
@@ -127,7 +127,7 @@ a:hover {
 
 button:hover:active,
 #login-btn:hover:active,
-a:hover:active {
+a.btn:hover:active {
     transform: scale(.99);
 }
 
