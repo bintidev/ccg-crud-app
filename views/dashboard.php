@@ -59,7 +59,7 @@
 
             <a class="btn btn-primary p-2 mb-3" id="btn-crear" href="index.php?action=create"><i class="bi bi-plus-lg"></i> Add new ghoul</a>
 
-            <table class="ghoul-table table fs-5 mb-5 w-100">
+            <table class="ghoul-table table fs-6 mb-5 w-100">
                 <thead>
                     <tr>
                         <th scope="col">ID</th>
