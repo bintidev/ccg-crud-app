@@ -13,73 +13,67 @@
     <link rel="stylesheet" href="public/css/header-style.css">
 </head>
 
-<body>
+<body class="d-flex justify-content-center align-items-center">
 
-    <?php include 'templates/header.php'; ?>
+    <div class="background-animated"></div>
 
-    <div class="d-flex justify-content-center align-items-center">
+    <div class="wrapper w-50" id="container">
 
-        <div class="background-animated"></div>
+        <form method="POST" class="d-flex justify-content-center align-items-center w-100"
+        action="index.php?action=edit&id=<?php echo $_SESSION['ghoul_data']->id ?>" id="actionForm">
+            <h4>Edit Ghoul</h4>
 
-        <div class="wrapper w-50" id="container">
+            <input type="hidden" name="id" value="<?php echo $_SESSION['ghoul_data']->id; ?>">
 
-            <form method="POST" class="d-flex justify-content-center align-items-center w-100"
-            action="index.php?action=edit&id=<?php echo $_SESSION['ghoul_data']->id ?>" id="actionForm">
-                <h4>Edit Ghoul</h4>
+            <div class="floating-label mb-3">
+                <input type="text" name="ghoulid" id="ghoulid" placeholder="AA-bb000" value="<?php echo htmlspecialchars($_SESSION['ghoul_data']->ghoulid); ?>">
+                <label for="ghoulid">Ghoul ID</label>
+            </div>
 
-                <input type="hidden" name="id" value="<?php echo $_SESSION['ghoul_data']->id; ?>">
+            <div class="floating-label mb-3">
+                <input type="text" name="name" id="name" placeholder="Name" value="<?php echo htmlspecialchars($_SESSION['ghoul_data']->name); ?>">
+                <label for="name">Name</label>
+            </div>
 
-                <div class="floating-label mb-3">
-                    <input type="text" name="ghoulid" id="ghoulid" placeholder="AA-bb000" value="<?php echo htmlspecialchars($_SESSION['ghoul_data']->ghoulid); ?>">
-                    <label for="ghoulid">Ghoul ID</label>
+            <div class="floating-label mb-5">
+                <input type="text" name="rank" id="rank" placeholder="Leave empty if unknown" value="<?php echo htmlspecialchars($_SESSION['ghoul_data']->rank ? $_SESSION['ghoul_data']->rank : ''); ?>">
+                <label for="rank">Rank</label>
+            </div>
+
+            <div class="floating-label mb-3">
+                <select class="form-select" aria-label="Default select example" name="kagune" id="kagune">
+                    <option selected value="">Select kagune type</option>
+                    <option value="uka" <?php echo htmlspecialchars($_SESSION['ghoul_data']->kagune == 'Ukaku') ? 'selected' : ''; ?>>Ukaku</option>
+                    <option value="kou" <?php echo htmlspecialchars($_SESSION['ghoul_data']->kagune == 'Koukaku') ? 'selected' : ''; ?>>Koukaku</option>
+                    <option value="rin" <?php echo htmlspecialchars($_SESSION['ghoul_data']->kagune == 'Rinkaku') ? 'selected' : ''; ?>>Rinkaku</option>
+                    <option value="bi" <?php echo htmlspecialchars($_SESSION['ghoul_data']->kagune == 'Bikaku') ? 'selected' : ''; ?>>Bikaku</option>
+                </select>
+                <label>Kagune</label>
+            </div>
+
+            <div class="floating-label mb-3">
+                <input type="number" name="ward" id="District number" placeholder="Type 0 if unknown" value="<?php echo $_SESSION['ghoul_data']->ward ? $_SESSION['ghoul_data']->ward : '0'; ?>">
+                <label for="ward">Ward</label>
+            </div>
+
+            <div class="mb-3">
+                <div class="form-check form-switch containment_status">
+                    <input class="form-check-input" type="checkbox" name="contained" role="switch" id="contained" <?php echo ($_SESSION['ghoul_data']->contained == 0) ? '' : 'checked'; ?>>
+                    <label class="form-check-label" for="switchCheckChecked">Contained</label>
                 </div>
+                <div id="ccontainment_statusHelp" class="form-text text-danger"></div>
+            </div>
+            
+            <div class="floating-label mb-5">
+                <input type="date" name="first_detected_activity" id="first_detected_activity" value="<?php echo htmlspecialchars($_SESSION['ghoul_data']->first_detected_activity); ?>">
+                <label>First Detected Activity</label>
+            </div>
 
-                <div class="floating-label mb-3">
-                    <input type="text" name="name" id="name" placeholder="Name" value="<?php echo htmlspecialchars($_SESSION['ghoul_data']->name); ?>">
-                    <label for="name">Name</label>
-                </div>
-
-                <div class="floating-label mb-5">
-                    <input type="text" name="rank" id="rank" placeholder="Leave empty if unknown" value="<?php echo htmlspecialchars($_SESSION['ghoul_data']->rank ? $_SESSION['ghoul_data']->rank : ''); ?>">
-                    <label for="rank">Rank</label>
-                </div>
-
-                <div class="floating-label mb-3">
-                    <select class="form-select" aria-label="Default select example" name="kagune" id="kagune">
-                        <option selected value="">Select kagune type</option>
-                        <option value="uka" <?php echo htmlspecialchars($_SESSION['ghoul_data']->kagune == 'Ukaku') ? 'selected' : ''; ?>>Ukaku</option>
-                        <option value="kou" <?php echo htmlspecialchars($_SESSION['ghoul_data']->kagune == 'Koukaku') ? 'selected' : ''; ?>>Koukaku</option>
-                        <option value="rin" <?php echo htmlspecialchars($_SESSION['ghoul_data']->kagune == 'Rinkaku') ? 'selected' : ''; ?>>Rinkaku</option>
-                        <option value="bi" <?php echo htmlspecialchars($_SESSION['ghoul_data']->kagune == 'Bikaku') ? 'selected' : ''; ?>>Bikaku</option>
-                    </select>
-                    <label>Kagune</label>
-                </div>
-
-                <div class="floating-label mb-3">
-                    <input type="number" name="ward" id="District number" placeholder="Type 0 if unknown" value="<?php echo $_SESSION['ghoul_data']->ward ? $_SESSION['ghoul_data']->ward : '0'; ?>">
-                    <label for="ward">Ward</label>
-                </div>
-
-                <div class="mb-3">
-                    <div class="form-check form-switch containment_status">
-                        <input class="form-check-input" type="checkbox" name="contained" role="switch" id="contained" <?php echo ($_SESSION['ghoul_data']->contained == 0) ? '' : 'checked'; ?>>
-                        <label class="form-check-label" for="switchCheckChecked">Contained</label>
-                    </div>
-                    <div id="ccontainment_statusHelp" class="form-text text-danger"></div>
-                </div>
-                
-                <div class="floating-label mb-5">
-                    <input type="date" name="first_detected_activity" id="first_detected_activity" value="<?php echo htmlspecialchars($_SESSION['ghoul_data']->first_detected_activity); ?>">
-                    <label>First Detected Activity</label>
-                </div>
-
-                <div class="form-buttons">
-                    <button type="submit" class="btn p-3" name="update" id="btn-actualizar">Update Ghoul Info</button>
-                    <a class="btn p-3" href="index.php?action=index">Back to dashboard</a>
-                </div>
-            </form>
-
-        </div>
+            <div class="form-buttons">
+                <button type="submit" class="form-buttons btn p-3" name="update" id="btn-actualizar">Update Ghoul Info</button>
+                <a class="form-buttons btn p-3" href="index.php?action=index">Cancel</a>
+            </div>
+        </form>
 
     </div>
 

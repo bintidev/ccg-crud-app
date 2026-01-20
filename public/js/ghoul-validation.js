@@ -71,6 +71,10 @@ document.getElementById('first_detected_activity').addEventListener("change", ()
 
 function marcarError(id, msj) {
 
+    if (document.getElementById(id + 'Help')) {
+        document.getElementById(id + 'Help').remove();
+    }
+
     let help = document.createElement('div');
     help.setAttribute('class', 'form-text text-danger');
     help.setAttribute('id', id + 'Help');

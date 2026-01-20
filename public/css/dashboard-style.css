@@ -21,8 +21,7 @@ body {
 
 
 /* BUTTONS */
-a.btn,
-button {
+a.btn {
     background-color: rgb(97, 16, 43);
     /* saturate($primary, 30%) */
     color: #fff;

@@ -99,7 +99,7 @@ class AuthController                                   // la clase AuthControlle
     public function dashboard()
     {
         // Verificar si el usuario ha iniciado sesión
-        if (!isset($_SESSION['idusuario'])) {
+        if (!isset($_SESSION['idusuario']) || empty($_SESSION['idusuario'])) {
             header('Location: index.php?action=login');
             exit();
         }
