@@ -1,5 +1,7 @@
 
 <!-- views/editar.php -->
+<?php include 'config/secure-session.php' ?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -26,7 +28,7 @@
             <input type="hidden" name="id" value="<?php echo $_SESSION['ghoul_data']->id; ?>">
 
             <div class="floating-label mb-3">
-                <input type="text" name="ghoulid" id="ghoulid" placeholder="AA-bb000" value="<?php echo htmlspecialchars($_SESSION['ghoul_data']->ghoulid); ?>">
+                <input type="text" name="ghoulid" id="ghoulid" placeholder="Ex. AA-bb000" value="<?php echo htmlspecialchars($_SESSION['ghoul_data']->ghoulid); ?>">
                 <label for="ghoulid">Ghoul ID</label>
             </div>
 
@@ -40,7 +42,7 @@
                 <label for="rank">Rank</label>
             </div>
 
-            <div class="floating-label mb-3">
+            <div class="floating-label mb-5">
                 <select class="form-select" aria-label="Default select example" name="kagune" id="kagune">
                     <option selected value="">Select kagune type</option>
                     <option value="uka" <?php echo htmlspecialchars($_SESSION['ghoul_data']->kagune == 'Ukaku') ? 'selected' : ''; ?>>Ukaku</option>
@@ -52,7 +54,7 @@
             </div>
 
             <div class="floating-label mb-3">
-                <input type="number" name="ward" id="District number" placeholder="Type 0 if unknown" value="<?php echo $_SESSION['ghoul_data']->ward ? $_SESSION['ghoul_data']->ward : '0'; ?>">
+                <input type="number" name="ward" id="District number" placeholder="Type 0 if unknown" value="<?php echo $_SESSION['ghoul_data']->ward ? $_SESSION['ghoul_data']->ward : 0; ?>">
                 <label for="ward">Ward</label>
             </div>
 
@@ -70,8 +72,8 @@
             </div>
 
             <div class="form-buttons">
-                <button type="submit" class="form-buttons btn p-3" name="update" id="btn-actualizar">Update Ghoul Info</button>
-                <a class="form-buttons btn p-3" href="index.php?action=index">Cancel</a>
+                <button type="submit" class="btn p-3 text-white" name="update">Update Ghoul Info</button>
+                <a class="btn p-3 text-white" href="index.php?action=index">Cancel</a>
             </div>
         </form>
 

@@ -1,4 +1,6 @@
 <!-- views/listar.php -->
+<?php include 'config/secure-session.php' ?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -9,8 +11,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="public/css/header-style.css">
     <link rel="stylesheet" href="public/css/dashboard-style.css">
+    <link rel="stylesheet" href="public/css/header-style.css">
 </head>
 
 <body>
@@ -21,12 +23,12 @@
 
         <div>
             
-            <div>
-                <h1 class="mb-3 text-white text-center fw-bold">
+            <div class="fs-1 mt-3">
+                <h1 class="mb-2 text-white text-center fw-bold">
                     <span id="welcome" class="fst-italic">Welcome back,</span> 
                     <?php echo $_SESSION['idusuario'] ?>
                 </h1>
-                <div class="mb-5 p-2" id="reminder">
+                <div class="mb-5 p-2 text-center" id="reminder">
                     <p>
                     Even if it costs you your arms and legs, you must fight.
                     </p>
@@ -55,9 +57,9 @@
                 <?php unset($_GET['message']); // para que no aparezca el mensaje al recargar la página ?>
             <?php endif; ?>
 
-            <a class="btn btn-primary p-2 mb-3" id="btn-crear" href="index.php?action=create">Add new ghoul</a>
+            <a class="btn btn-primary p-2 mb-3" id="btn-crear" href="index.php?action=create"><i class="bi bi-plus-lg"></i> Add new ghoul</a>
 
-            <table class="ghoul-table table w-100">
+            <table class="ghoul-table table fs-5 mb-5 w-100">
                 <thead>
                     <tr>
                         <th scope="col">ID</th>

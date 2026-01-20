@@ -107,19 +107,18 @@ form p {
 /* BUTTON */
 button,
 #login-btn,
-a.btn {
+.btn {
     --webkit-appearance: none;
     padding: 15px 40px;
     background-color: rgb(97, 16, 43);
     /* saturate($primary, 30%) */
     font-size: 15px;
-    box-shadow: 0px 2px 6px -1px rgba(255, 63, 153, 0.13);
     transition: all .3s ease;
 }
 
 button:hover,
 #login-btn:hover,
-a.btn:hover {
+.btn:hover {
     box-shadow: 0 0 10px rgb(216, 0, 101);
     transform: translateY(-3px);
     background-color: rgb(146, 0, 68);
@@ -127,7 +126,7 @@ a.btn:hover {
 
 button:hover:active,
 #login-btn:hover:active,
-a.btn:hover:active {
+.btn:hover:active {
     transform: scale(.99);
 }
 
@@ -135,10 +134,11 @@ a.btn:hover:active {
 input,
 select.form-select {
     font-size: 16px;
-    padding: 20px 0px;
+    padding: 20px 10px;
     height: 56px;
     border: none;
     border-bottom: solid 1px rgb(146, 0, 68);
+    border-radius: 0;
     background: #ffffff00;
     width: 280px;
     box-sizing: border-box;
@@ -149,13 +149,18 @@ select.form-select {
 }
 
 select.form-select {
+    background-color: rgba(69, 63, 104, 0.603);
+    color: #cfcfcf;
+}
+
+/*select.form-select {
     background-color: rgb(87, 81, 126);
     background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
     background-repeat: no-repeat;
     background-position: right 0.75rem center;
     background-size: 16px 12px;
     padding-right: 2.5rem;
-}
+}*/
 
 input:focus,
 select.form-select:focus {
@@ -226,6 +231,7 @@ select.form-select:focus {
 }
 
 .floating-label input,
+.floating-label select,
 .form-text {
     width: calc(100% - 44px);
     margin-left: auto;
@@ -354,7 +360,7 @@ select.form-select:focus {
 }
 
 /* FORM BUTTONS CONTAINER */
-.form-buttons {
+/*.form-buttons {
     display: flex;
     gap: 1rem;
     justify-content: center;
@@ -384,7 +390,7 @@ select.form-select:focus {
 
 .form-buttons .btn:active {
     transform: scale(.99);
-}
+}*/
 
 /* SESSION LAYOUT */
 .wrapper {

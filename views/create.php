@@ -1,5 +1,7 @@
 
 <!-- views/crear.php -->
+<?php include 'config/secure-session.php' ?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -26,19 +28,16 @@
             <div class="floating-label mb-3">
                 <input type="text" name="ghoulid" id="ghoulid" placeholder="AA-bb000">
                 <label for="ghoulid">Ghoul ID</label>
-                <!--<div id="ghoulidHelp" class="form-text text-danger"></div>-->
             </div>
 
             <div class="floating-label mb-3">
                 <input type="text" name="name" id="name" placeholder="Name">
                 <label for="name">Name</label>
-                <!--<div id="nameHelp" class="form-text text-danger"></div>-->
             </div>
 
-            <div class="floating-label mb-3">
+            <div class="floating-label mb-5">
                 <input type="text" name="rank" id="rank" placeholder="Leave empty if unknown">
                 <label for="rank">Rank</label>
-                <!--<div id="rankHelp" class="form-text text-danger"></div>-->
             </div>
 
             <div class="floating-label mb-3">
@@ -50,13 +49,11 @@
                     <option value="bi">Bikaku</option>
                 </select>
                 <label for="kagune">Kagune</label>
-                <!--<div id="kaguneHelp" class="form-text text-danger"></div>-->
             </div>
 
             <div class="floating-label mb-3">
                 <input type="number" name="ward" id="ward" placeholder="Type 0 if unknown">
                 <label for="ward">Ward</label>
-                <!--<div id="wardHelp" class="form-text text-danger"></div>-->
             </div>
 
             <div class="mb-3">
@@ -64,18 +61,16 @@
                     <input class="form-check-input" type="checkbox" name="contained" role="switch" id="contained">
                     <label class="form-check-label" for="switchCheckChecked">Contained</label>
                 </div>
-                <!--<div id="ccontainment_statusHelp" class="form-text text-danger"></div>-->
             </div>
             
             <div class="floating-label mb-5">
                 <input type="date" name="first_detected_activity" id="first_detected_activity">
                 <label for="first_detected_activity">First Detected Activity</label>
-                <!--<div id="first_detected_activityHelp" class="form-text text-danger"></div>-->
             </div>
 
             <div class="form-buttons">
-                <button type="submit" class="btn p-3" id="btn-crear">Add Ghoul</button>
-                <a class="btn p-3" href="index.php?action=index">Cancel</a>
+                <button type="submit" class="btn p-3 text-white">Add Ghoul</button>
+                <a class="btn p-3 text-white" href="index.php?action=index"><i class="bi bi-x"></i> Cancel</a>
             </div>
         </form>
 

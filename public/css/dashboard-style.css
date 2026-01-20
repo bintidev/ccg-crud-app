@@ -14,14 +14,13 @@ body {
 
 #reminder {
     font-size: 15.5px;
-    background-color: rgba(236, 74, 150, 0.555);
-    border-left: solid 10px rgb(255, 0, 119);
-    color: #d8d8d8
+    color: #bbbbbb;
+    animation: pulse .5s infinite;
 }
 
 
 /* BUTTONS */
-a.btn {
+#btn-crear {
     background-color: rgb(97, 16, 43);
     /* saturate($primary, 30%) */
     color: #fff;
@@ -67,6 +66,10 @@ a.btn {
     border-bottom: 1px solid rgba(146, 0, 68, 0.3) !important;
     transition: all 0.3s ease !important;
     background-color: #ff89c0d0 !important;
+}
+
+.table tbody td {
+    width: 500px !important;
 }
 
 .table tbody tr:hover {

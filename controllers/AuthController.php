@@ -1,6 +1,6 @@
 <?php
 // controllers/AuthController.php
-//include 'config/secure-session.php';
+include 'config/secure-session.php';
 
 class AuthController                                   // la clase AuthController contiene un objeto usuario (el que autentica)
 {
@@ -121,7 +121,6 @@ class AuthController                                   // la clase AuthControlle
 
         session_destroy();
 
-        $_SESSION['error'] = "Logout successful.";
         header('Location: index.php?action=login');
         exit();
     }

@@ -12,7 +12,7 @@
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="btn btn-primary p-2" id="btn-logout" href="index.php?action=logout">Logout</a>
+                    <a class="btn btn-primary p-2 px-4" id="btn-logout" href="index.php?action=logout">Logout</a>
                 </li>
             </ul>
         </div>

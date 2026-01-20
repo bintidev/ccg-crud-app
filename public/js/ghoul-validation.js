@@ -6,8 +6,9 @@ document.getElementById("actionForm").addEventListener("submit", function valida
     let ghoulid = document.getElementById('ghoulid').value;
     let name = document.getElementById('name').value;
     let kagune = document.getElementById('kagune').value;
-    let ward = parseInt(document.getElementById('ward').value);
-    let first_activity = document.getElementById('first_detected_activity').value;
+    let ward = document.getElementById('ward').value;
+    let first_activity = new Date(document.getElementById('first_detected_activity').value);
+    let actualDate = new Date();
 
     let correcto = true;
 
@@ -17,7 +18,7 @@ document.getElementById("actionForm").addEventListener("submit", function valida
     // ghoulid validations
     if (ghoulid.trim() == '' || !ghoulid.match(validGhoulId)) {
 
-        msj = 'Invalid Ghoul ID format';
+        msj = 'Ghoul ID must follow AA-bb000 format';
         marcarError('ghoulid', msj);
         correcto = false;
 
@@ -51,9 +52,22 @@ document.getElementById("actionForm").addEventListener("submit", function valida
     }
 
     // first detected activity validation
-    if (first_activity.trim() == '') {
+    // empty
+    if (first_activity == 'Invalid Date') {
 
         msj = 'First Detected Activity date cannot be empty';
+        marcarError('first_detected_activity', msj);
+        correcto = false;
+
+    }
+
+    // future date
+    if (first_activity.getFullYear() > actualDate.getFullYear() ||
+        (first_activity.getMonth() > actualDate.getMonth()) ||
+        (first_activity.getDate() > actualDate.getDate())
+    ) {
+
+        msj = 'First Detected Activity cannot be in the future';
         marcarError('first_detected_activity', msj);
         correcto = false;
 
@@ -75,6 +89,7 @@ function marcarError(id, msj) {
         document.getElementById(id + 'Help').remove();
     }
 
+    document.getElementById(id).style.borderBottom = 'solid 1px red';
     let help = document.createElement('div');
     help.setAttribute('class', 'form-text text-danger');
     help.setAttribute('id', id + 'Help');
@@ -85,6 +100,7 @@ function marcarError(id, msj) {
 
 function limpiarError(id) {
 
+    document.getElementById(id).style.borderBottom = 'solid 1px rgb(146, 0, 68)';
     document.getElementById(id + 'Help').remove();
 
 }

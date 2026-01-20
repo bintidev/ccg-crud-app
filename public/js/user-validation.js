@@ -80,6 +80,8 @@ function marcarError(id, msj) {
     if (document.getElementById(id + 'Help')) {
         document.getElementById(id + 'Help').remove();
     }
+
+    document.getElementById(id).style.borderBottom = 'solid 1px red';
     let help = document.createElement('div');
     help.setAttribute('class', 'form-text text-danger');
     help.setAttribute('id', id + 'Help');
@@ -90,6 +92,7 @@ function marcarError(id, msj) {
 
 function limpiarError(id) {
 
+    document.getElementById(id).style.borderBottom = 'solid 1px rgb(146, 0, 68)';
     document.getElementById(id + 'Help').remove();
 
 }

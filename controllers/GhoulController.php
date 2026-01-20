@@ -1,5 +1,6 @@
 <?php
-// controllers/AlumnoController.php
+// controllers/GhoulController.php
+include 'config/secure-session.php';
 include_once 'config/Database.php';
 include_once 'models/Ghoul.php';
 
@@ -73,7 +74,7 @@ class GhoulController
             $this->ghoul->readOne();
             if ($this->ghoul->name) {
                 $_SESSION['ghoul_data'] = (object)['id' => $this->ghoul->id, 'ghoulid' => $this->ghoul->ghoulid, 'name' => $this->ghoul->name, 'rank' => $this->ghoul->rank,
-                'kagune' => $this->ghoul->kagune, 'contained' => $this->ghoul->contained, 'first_detected_activity' => $this->ghoul->first_detected_activity];
+                'kagune' => $this->ghoul->kagune, 'ward' => $this->ghoul->ward, 'contained' => $this->ghoul->contained, 'first_detected_activity' => $this->ghoul->first_detected_activity];
                 include 'views/edit.php';
             } else {
                 $_SESSION['error'] = "Error. Ghoul not found.";

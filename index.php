@@ -6,7 +6,7 @@ require_once 'controllers/AuthController.php';                 // el modelo de u
 require_once 'models/User.php';
 require_once 'models/Ghoul.php';																						
                                                         // ambos son declaraciones de clases -> orientación a objetos pura
-include 'config/secure-session.php';
+include 'config/new-session.php';
 
 $auth_controller = new AuthController();
 $ghoul_controller = new GhoulController();            // creamos una instancia del controlador de alumno

@@ -1,6 +1,6 @@
 <?php
 
-//include 'config/secure-session.php';
+include 'config/secure-session.php';
 
 if (isset($_SESSION['usuario_logueado'])) {  // si el usuario estuviera ya logeado, lo derivamos al inicio interno
     header("Location: dashboard.php");    // nosotros haremos comprobación de token
@@ -19,8 +19,8 @@ if (isset($_SESSION['usuario_logueado'])) {  // si el usuario estuviera ya logea
     <link rel="shortcut icon" href="public/img/favicon.ico" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <link rel="stylesheet" href="public/css/forms-style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="public/css/forms-style.css">
 </head>
 
 <body class="d-flex flex-column justify-content-center align-items-center">
@@ -28,7 +28,7 @@ if (isset($_SESSION['usuario_logueado'])) {  // si el usuario estuviera ya logea
     <!-- Fondo Animado -->
     <div class="background-animated"></div>
 
-    
+
     <!-- Contenedor -->
     <div class="wrapper row w-50">
 
