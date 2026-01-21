@@ -137,11 +137,8 @@ ccg-crud-app/
 ![Login](/pictures/login.png "Pantalla de Login")
 *Pantalla de acceso — los usuarios se identifican con su nombre de usuario y contraseña.*
 
-![CRUD Dashboard](/pictures/crud-dashboard.png "CRUD Dashboard")
-*Dashboard con tabla de gestión — vista principal con opciones de edición y eliminación.*
-
 ![Dashboard](/pictures/dashboard.png "Dashboard")
-*Panel de administración de Ghouls tras autenticación exitosa.*
+*Dashboard con tabla de gestión — vista principal con opciones de edición y eliminación..*
 
 ![Crear Ghoul](/pictures/create.png "Formulario de Creación")
 *Formulario para crear nuevos registros de Ghouls con validación en cliente.*
