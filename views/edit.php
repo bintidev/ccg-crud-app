@@ -54,7 +54,7 @@
             </div>
 
             <div class="floating-label mb-3">
-                <input type="number" name="ward" id="District number" placeholder="Type 0 if unknown" value="<?php echo $_SESSION['ghoul_data']->ward ? $_SESSION['ghoul_data']->ward : 0; ?>">
+                <input type="number" name="ward" id="ward" placeholder="Type 0 if unknown" value="<?php echo $_SESSION['ghoul_data']->ward ? $_SESSION['ghoul_data']->ward : 0; ?>">
                 <label for="ward">Ward</label>
             </div>
 
