@@ -153,15 +153,6 @@ select.form-select {
     color: #cfcfcf;
 }
 
-/*select.form-select {
-    background-color: rgb(87, 81, 126);
-    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
-    background-repeat: no-repeat;
-    background-position: right 0.75rem center;
-    background-size: 16px 12px;
-    padding-right: 2.5rem;
-}*/
-
 input:focus,
 select.form-select:focus {
     border-bottom: solid 1px rgb(255, 63, 153);
@@ -359,39 +350,6 @@ select.form-select:focus {
     opacity: .8;
 }
 
-/* FORM BUTTONS CONTAINER */
-/*.form-buttons {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    width: 100%;
-    margin-top: 1.5rem;
-    flex-wrap: wrap;
-}
-
-.form-buttons .btn {
-    --webkit-appearance: none;
-    padding: 15px 40px;
-    background-color: rgb(97, 16, 43);
-    font-size: 14px;
-    box-shadow: 0px 2px 6px -1px rgba(255, 63, 153, 0.13);
-    transition: all .3s ease;
-    border: none;
-    cursor: pointer;
-    text-decoration: none;
-    display: inline-block;
-    color: #f3f2f2;
-}
-
-.form-buttons .btn:hover {
-    transform: translateY(-3px);
-    background-color: rgb(146, 0, 68);
-}
-
-.form-buttons .btn:active {
-    transform: scale(.99);
-}*/
-
 /* SESSION LAYOUT */
 .wrapper {
     display: flex;
@@ -419,12 +377,6 @@ select.form-select:focus {
 }
 
 /* ALERTAS */
-/*.alerta-error {
-    background-color: rgba(255, 166, 207, 1);
-    border: solid 1px rgb(97, 16, 43);
-    color: rgb(97, 16, 43);
-}*/
-
 @media screen and (max-width: 700px) {
     .wrapper {
         width: 75%;
