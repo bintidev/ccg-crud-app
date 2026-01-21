@@ -1,6 +1,5 @@
 <?php
 // controllers/GhoulController.php
-include 'config/secure-session.php';
 include_once 'config/Database.php';
 include_once 'models/Ghoul.php';
 

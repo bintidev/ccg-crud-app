@@ -32,7 +32,7 @@ if (isset($_SESSION['last_regeneration']) && (time() - $_SESSION['last_regenerat
 
 // generamos la primera vez un token que garantiza
 // haber ingresado correctamente. impide la suplantacion
-if (empty($_SESSION['csrf_token']) || !isset($_SESSION['csrf_token'])) {
+if (!isset($_SESSION['csrf_token']) || empty($_SESSION['csrf_token'])) {
 	// Creación de un CSRF Token
     // genera un string aleatorio de 64 bytes y luego
     // se aplica un hashing

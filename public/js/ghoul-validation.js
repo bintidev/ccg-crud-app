@@ -7,8 +7,8 @@ document.getElementById("actionForm").addEventListener("submit", function valida
     let name = document.getElementById('name').value;
     let kagune = document.getElementById('kagune').value;
     let ward = document.getElementById('ward').value;
-    let first_activity = new Date(document.getElementById('first_detected_activity').value);
-    let actualDate = new Date();
+    let first_activity = new Date(document.getElementById('first_detected_activity').value).getTime();
+    let actualDate = new Date().getTime();
 
     let correcto = true;
 
@@ -62,10 +62,7 @@ document.getElementById("actionForm").addEventListener("submit", function valida
     }
 
     // future date
-    if (first_activity.getFullYear() > actualDate.getFullYear() ||
-        (first_activity.getMonth() > actualDate.getMonth()) ||
-        (first_activity.getDate() > actualDate.getDate())
-    ) {
+    if (first_activity > actualDate) {
 
         msj = 'First Detected Activity cannot be in the future';
         marcarError('first_detected_activity', msj);

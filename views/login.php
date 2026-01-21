@@ -1,7 +1,5 @@
 <?php
 
-include 'config/secure-session.php';
-
 if (isset($_SESSION['usuario_logueado'])) {  // si el usuario estuviera ya logeado, lo derivamos al inicio interno
     header("Location: dashboard.php");    // nosotros haremos comprobación de token
     exit();

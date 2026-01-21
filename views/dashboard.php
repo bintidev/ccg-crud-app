@@ -1,5 +1,4 @@
 <!-- views/listar.php -->
-<?php include 'config/secure-session.php' ?>
 
 <!DOCTYPE html>
 <html lang="es">

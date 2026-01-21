@@ -1,6 +1,5 @@
 
 <!-- views/editar.php -->
-<?php include 'config/secure-session.php' ?>
 
 <!DOCTYPE html>
 <html lang="es">
