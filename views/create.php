@@ -56,9 +56,17 @@
             </div>
 
             <div class="mb-3">
-                <div class="form-check form-switch containment_status">
-                    <input class="form-check-input" type="checkbox" name="contained" role="switch" id="contained">
-                    <label class="form-check-label" for="switchCheckChecked">Contained</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault1" value="true" <?php echo ($_SESSION['ghoul_data']->contained == 0) ? '' : 'checked'; ?>>
+                    <label class="form-check-label" for="radioDefault1">
+                        Yes
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault2" value="false" <?php echo ($_SESSION['ghoul_data']->contained == 1) ? '' : 'checked'; ?>>
+                    <label class="form-check-label" for="radioDefault2">
+                        No
+                    </label>
                 </div>
             </div>
             

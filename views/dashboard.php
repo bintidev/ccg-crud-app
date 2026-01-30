@@ -1,5 +1,8 @@
 <!-- views/listar.php -->
-
+<?php
+/*require_once 'config/new-session.php'; 
+require_once 'config/secure-session.php';*/
+?>
 <!DOCTYPE html>
 <html lang="es">
 

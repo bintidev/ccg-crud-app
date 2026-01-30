@@ -41,18 +41,6 @@ CREATE TABLE `admins` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
--- Volcado de datos para la tabla `users`
---
-
-INSERT INTO `admins` (`agentid`, `password`, `last_name`, `name`) VALUES
-('MK001', 'KureoMad0_!', 'Mado', 'Kureo'),
-('TN219', '@tsuri-wLuV33', 'Nori', 'Tsuda');
-
---
--- Índices para tablas volcadas
---
-
---
 -- Estructura de tabla para la tabla `ghouls`
 --
 
@@ -93,3 +81,8 @@ GRANT SELECT, INSERT, UPDATE, DELETE, REFERENCES, DELETE HISTORY ON *.* TO `logi
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+-- Volcado de datos para la tabla `users`
+
+INSERT INTO `admins` (`agentid`, `password`, `last_name`, `name`) VALUES ('MK001', '$2y$10$0KO.vTRaYNr3JPk9B8rUE./g0PprMQF8HKmUU6PulLEHFmeCh1l0a', 'Mado', 'Kureo');
+INSERT INTO `admins` (`agentid`, `password`, `last_name`, `name`) VALUES ('TN219', '$2y$10$rblVbnZKG8QVBtFs3WaNN.QzBUiLQwEa/hXxflQRJQrewdrmZGBGS', 'Nori', 'Tsuda');

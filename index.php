@@ -6,8 +6,8 @@ require_once 'controllers/AuthController.php';                 // el modelo de u
 require_once 'models/User.php';
 require_once 'models/Ghoul.php';																						
                                                         // ambos son declaraciones de clases -> orientación a objetos pura
-include 'config/new-session.php';
-include 'config/secure-session.php';
+require_once 'config/new-session.php';
+require_once 'config/secure-session.php';
 
 $auth_controller = new AuthController();
 $ghoul_controller = new GhoulController();            // creamos una instancia del controlador de alumno
@@ -21,8 +21,8 @@ switch ($action) {
         $auth_controller->authenticate();      // si hay que autenticar
         break;
     case 'index':
-    case 'dashboard':
-        $ghoul_controller->index();         // si vamos a la página interna de inicio de la aplicación
+    case 'dashboard':         // si vamos a la página interna de inicio de la aplicación
+        $auth_controller->dashboard();
         break;
     case 'logout':
         $auth_controller->logout();            // si cerramos la sesión

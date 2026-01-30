@@ -58,11 +58,19 @@
             </div>
 
             <div class="mb-3">
-                <div class="form-check form-switch containment_status">
-                    <input class="form-check-input" type="checkbox" name="contained" role="switch" id="contained" <?php echo ($_SESSION['ghoul_data']->contained == 0) ? '' : 'checked'; ?>>
-                    <label class="form-check-label" for="switchCheckChecked">Contained</label>
-                </div>
-                <div id="ccontainment_statusHelp" class="form-text text-danger"></div>
+            
+
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault1" value="true" <?php echo ($_SESSION['ghoul_data']->contained == 'false') ? '' : 'checked'; ?>>
+                <label class="form-check-label" for="radioDefault1">
+                    Yes
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault2" value="false" <?php echo ($_SESSION['ghoul_data']->contained == 'true') ? '' : 'checked'; ?>>
+                <label class="form-check-label" for="radioDefault2">
+                    No
+                </label>
             </div>
             
             <div class="floating-label mb-5">

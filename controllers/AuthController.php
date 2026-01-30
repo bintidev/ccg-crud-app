@@ -1,13 +1,16 @@
 <?php
 // controllers/AuthController.php
+require_once 'controllers/GhoulController.php';
 
 class AuthController                                   // la clase AuthController contiene un objeto usuario (el que autentica)
 {
     private $userModel;
+    private $ghoulController;
 
     public function __construct()                     // aquí lo crea
     {
         $this->userModel = new User();
+        $this->ghoulController = new GhoulController();
     }
 
     public function login()                           // aquí ejecuta el login (en realidad, la vista login)
@@ -98,13 +101,16 @@ class AuthController                                   // la clase AuthControlle
     public function dashboard()
     {
         // Verificar si el usuario ha iniciado sesión
-        if (!isset($_SESSION['idusuario']) || empty($_SESSION['idusuario'])) {
+        if (!isset($_POST['csrf_token'] ) && !isset($_SESSION['idusuario'])) {
+            $_SESSION['error'] = "Credentials required to access the system.";
             header('Location: index.php?action=login');
             exit();
+        } else {
+            // Carga la vista del dashboard (página de bienvenida)
+            $_SESSION['usuario_logueado'] = true;
+            $this->ghoulController->index();
+            include 'views/dashboard.php';
         }
-        // Carga la vista del dashboard (página de bienvenida)
-        $_SESSION['usuario_logueado'] = true;
-        include 'views/dashboard.php';
     }
 
     public function logout()

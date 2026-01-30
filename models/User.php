@@ -28,7 +28,7 @@ class User
 
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        if ($row['password'] == $password) { // si existe usuario comprueba que la contraseña es correcta
+        if (password_verify($password, $row['password'])) { // si existe usuario comprueba que la contraseña es correcta
             return $row;
         }
         return 'p_notfound'; // mensaje de error contraseña

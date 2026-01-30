@@ -17,9 +17,9 @@ class GhoulController
 
     public function index()
     {
+        
         $stmt = $this->ghoul->read();               // invoca la operación read del modelo (SELECT * de la tabla entera)
-        $_SESSION['ghoul'] = $stmt->fetchAll(PDO::FETCH_ASSOC);// lo convierte todo al formato array asociativo (es un array de filas)
-        include 'views/dashboard.php';                  // incluye aquí el código de listar (mostrar tabla por pantalla)
+        $_SESSION['ghoul'] = $stmt->fetchAll(PDO::FETCH_ASSOC);// lo convierte todo al formato array asociativo (es un array de filas)            // incluye aquí el código de listar (mostrar tabla por pantalla)
     }
 
     public function create()
@@ -30,7 +30,7 @@ class GhoulController
             $this->ghoul->rank = $_POST['rank'] == '' ? NULL : $_POST['rank'];
             $this->ghoul->kagune = $_POST['kagune'] == 'uka' ? 'Ukaku' : ($_POST['kagune'] == 'kou' ? 'Koukaku' : ($_POST['kagune'] == 'rin' ? 'Rinkaku' : ($_POST['kagune'] == 'bi' ? 'Bikaku' : '')));
             $this->ghoul->ward = $_POST['ward'] == 0 ? NULL : $_POST['ward'];
-            $this->ghoul->contained = $_POST['contained'] ? 0 : 1;
+            $this->ghoul->contained = $_POST['contained'] == 'true' ? 1 : 0;
             $this->ghoul->first_detected_activity = $_POST['first_detected_activity'];
 
             if ($this->ghoul->create()) {
@@ -55,7 +55,7 @@ class GhoulController
             $this->ghoul->rank = $_POST['rank'] == '' ? NULL : $_POST['rank'];
             $this->ghoul->kagune = $_POST['kagune'] == 'uka' ? 'Ukaku' : ($_POST['kagune'] == 'kou' ? 'Koukaku' : ($_POST['kagune'] == 'rin' ? 'Rinkaku' : ($_POST['kagune'] == 'bi' ? 'Bikaku' : '')));
             $this->ghoul->ward = $_POST['ward'] == 0 ? NULL : $_POST['ward'];
-            $this->ghoul->contained = $_POST['contained'] ? 0 : 1;
+            $this->ghoul->contained = $_POST['contained'] == 'true' ? 1 : 0;
             $this->ghoul->first_detected_activity = $_POST['first_detected_activity'];
 
 
